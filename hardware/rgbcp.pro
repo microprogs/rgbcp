@@ -1,11 +1,6 @@
-update=Thu 12 Dec 2013 00:35:50 MSK
+update=Sat 14 Dec 2013 14:38:32 MSK
 version=1
-last_client=eeschema
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
+last_client=kicad
 [pcbnew]
 version=1
 PadDrlX=320
@@ -24,7 +19,6 @@ TxtLar=120
 MSegLar=150
 LastNetListRead=
 [pcbnew/libraries]
-LibDir=
 LibName1=/home/user/work/rgbcp/hardware/rgbcp
 LibName2=sockets
 LibName3=connect
@@ -37,9 +31,7 @@ LibName9=led
 LibName10=dip_sockets
 LibName11=pga_sockets
 LibName12=valves
-LibName13=to263
-[general]
-version=1
+LibDir=
 [eeschema]
 version=1
 LibDir=
@@ -103,3 +95,10 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=rgbcp
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
+[general]
+version=1

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Wed 11 Dec 2013 23:25:37 MSK
+EESchema Schematic File Version 2  date Sat 14 Dec 2013 17:15:28 MSK
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,7 +37,7 @@ $Descr A3 16535 11700
 encoding utf-8
 Sheet 1 1
 Title "rgbcp"
-Date "11 dec 2013"
+Date "14 dec 2013"
 Rev "1"
 Comp ""
 Comment1 ""
@@ -45,6 +45,15 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+$Comp
+L MAX603ESA U3
+U 1 1 52AC5722
+P 6350 5550
+F 0 "U3" H 6352 5228 60  0000 C CNN
+F 1 "MAX603ESA" H 6366 5946 60  0000 C CNN
+	1    6350 5550
+	1    0    0    -1  
+$EndComp
 Text Notes 7200 7500 0    60   ~ 0
 LEDs for Battery Level
 Text Notes 5750 5000 0    60   ~ 0
@@ -116,7 +125,7 @@ Wire Wire Line
 	6900 5550 7000 5550
 Connection ~ 5350 5350
 Wire Wire Line
-	5350 5450 5350 5350
+	5350 5350 5350 5450
 Connection ~ 5650 5350
 Wire Wire Line
 	5650 5350 5650 5650
@@ -228,7 +237,7 @@ Wire Wire Line
 Wire Wire Line
 	9400 4350 8825 4350
 Wire Wire Line
-	3575 9900 3575 9800
+	3575 9800 3575 9900
 Wire Wire Line
 	11350 10250 11350 8650
 Wire Wire Line
@@ -1202,9 +1211,9 @@ Wire Wire Line
 Wire Wire Line
 	1850 7325 1950 7325
 Wire Wire Line
-	1775 10100 1775 10300
+	1775 10300 1775 10100
 Wire Wire Line
-	1075 10300 1975 10300
+	1975 10300 1075 10300
 Connection ~ 1775 10300
 Wire Wire Line
 	1150 7400 1150 7300
@@ -1451,34 +1460,25 @@ F 1 "10uF" H 5400 5550 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR01
+L GND #PWR02
 U 1 1 52A4C090
 P 7000 6700
-F 0 "#PWR01" H 7000 6700 30  0001 C CNN
+F 0 "#PWR02" H 7000 6700 30  0001 C CNN
 F 1 "GND" H 7000 6630 30  0001 C CNN
 	1    7000 6700
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR02
+L GND #PWR03
 U 1 1 52A4C08B
 P 5750 6050
-F 0 "#PWR02" H 5750 6050 30  0001 C CNN
+F 0 "#PWR03" H 5750 6050 30  0001 C CNN
 F 1 "GND" H 5750 5980 30  0001 C CNN
 	1    5750 6050
 	1    0    0    -1  
 $EndComp
 Text Label 5150 5350 0    60   ~ 0
 VIN_4-7V
-$Comp
-L MAX603ESA #U03
-U 1 1 52A4BFDB
-P 6350 5550
-F 0 "#U03" H 6402 5278 60  0001 C CNN
-F 1 "MAX603ESA" H 6366 5946 60  0000 C CNN
-	1    6350 5550
-	1    0    0    -1  
-$EndComp
 $Comp
 L GND #PWR04
 U 1 1 522203E1

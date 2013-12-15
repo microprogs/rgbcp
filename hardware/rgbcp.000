@@ -1,4 +1,4 @@
-PCBNEW-BOARD Version 1 date Sun 15 Dec 2013 16:22:33 MSK
+PCBNEW-BOARD Version 1 date Sun 15 Dec 2013 16:24:10 MSK
 
 # Created by Pcbnew(2012-apr-16-27)-stable
 
@@ -41,10 +41,10 @@ ZoneClearence 200
 TrackMinWidth 80
 DrawSegmWidth 150
 EdgeSegmWidth 150
-ViaSize 350
-ViaDrill 250
-ViaMinSize 350
-ViaMinDrill 200
+ViaSize 472
+ViaDrill 315
+ViaMinSize 472
+ViaMinDrill 315
 MicroViaSize 200
 MicroViaDrill 50
 MicroViasAllowed 0
@@ -71,8 +71,8 @@ Name "Default"
 Desc "This is the default net class."
 Clearance 100
 TrackWidth 80
-ViaDia 350
-ViaDrill 250
+ViaDia 472
+ViaDrill 315
 uViaDia 200
 uViaDrill 50
 AddNet ""

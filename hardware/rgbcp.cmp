@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sat 14 Dec 2013 22:35:00 MSK
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = Sun 15 Dec 2013 14:05:17 MSK
 
 BeginCmp
 TimeStamp = /51FE9837;
@@ -151,28 +151,28 @@ BeginCmp
 TimeStamp = /51FE7EEE;
 Reference = F1;
 ValeurCmp = IRF4905SPBF;
-IdModule  = D2PAK;
+IdModule  = IRF4905SPBF;
 EndCmp
 
 BeginCmp
 TimeStamp = /52152857;
 Reference = F2;
 ValeurCmp = IRF4905SPBF;
-IdModule  = D2PAK;
+IdModule  = IRF4905SPBF;
 EndCmp
 
 BeginCmp
 TimeStamp = /52152856;
 Reference = F3;
 ValeurCmp = IRF4905SPBF;
-IdModule  = D2PAK;
+IdModule  = IRF4905SPBF;
 EndCmp
 
 BeginCmp
 TimeStamp = /52152854;
 Reference = F4;
 ValeurCmp = IRF4905SPBF;
-IdModule  = D2PAK;
+IdModule  = IRF4905SPBF;
 EndCmp
 
 BeginCmp
@@ -424,70 +424,70 @@ BeginCmp
 TimeStamp = /5214FF0C;
 Reference = Q0;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FF25;
 Reference = Q1;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FF41;
 Reference = Q2;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FF6D;
 Reference = Q3;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FF85;
 Reference = Q4;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FEFB;
 Reference = Q5;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FECC;
 Reference = Q6;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FE98;
 Reference = Q7;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FE71;
 Reference = Q8;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
 TimeStamp = /5214FE47;
 Reference = Q9;
 ValeurCmp = BCP56-16;
-IdModule  = SOT223;
+IdModule  = BCP56-16;
 EndCmp
 
 BeginCmp
@@ -953,10 +953,10 @@ IdModule  = LQFP48;
 EndCmp
 
 BeginCmp
-TimeStamp = /51FA0FDC;
+TimeStamp = /52AD6CD9;
 Reference = U2;
 ValeurCmp = LM3940IS-3.3;
-IdModule  = TO-263-3;
+IdModule  = LM3940;
 EndCmp
 
 BeginCmp

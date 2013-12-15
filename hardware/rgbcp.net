@@ -1,43 +1,43 @@
-# EESchema Netlist Version 1.1 created  Sat 14 Dec 2013 22:35:00 MSK
+# EESchema Netlist Version 1.1 created  Sun 15 Dec 2013 14:05:17 MSK
 (
  ( /51FE9837 TC-0205 B0 SW_PUSH
   ( 1 /BTN_0 )
-  ( 2 N-000010 )
+  ( 2 N-000011 )
  )
  ( /51FE983B TC-0205 B1 SW_PUSH
   ( 1 /BTN_1 )
-  ( 2 N-000011 )
+  ( 2 N-000012 )
  )
  ( /51FE983E TC-0205 B2 SW_PUSH
   ( 1 /BTN_2 )
-  ( 2 N-000016 )
+  ( 2 N-000013 )
  )
  ( /51FE9842 TC-0205 B3 SW_PUSH
   ( 1 /BTN_3 )
-  ( 2 N-000022 )
+  ( 2 N-000014 )
  )
  ( /51FE9847 TC-0205 B4 SW_PUSH
   ( 1 /BTN_4 )
-  ( 2 N-000023 )
+  ( 2 N-000022 )
  )
  ( /51FE984C TC-0205 B5 SW_PUSH
   ( 1 /BTN_5 )
-  ( 2 N-000024 )
+  ( 2 N-000023 )
  )
  ( /51FE8E5C BH311-1A BH1 1,5V
-  ( + N-000004 )
-  ( - N-000005 )
- )
- ( /51FE8E61 BH311-1A BH2 1,5V
-  ( + N-000005 )
-  ( - N-000006 )
- )
- ( /51FE8E65 BH311-1A BH3 1,5V
   ( + N-000006 )
   ( - N-000007 )
  )
- ( /51FE8E68 BH311-1A BH4 1,5V
+ ( /51FE8E61 BH311-1A BH2 1,5V
   ( + N-000007 )
+  ( - N-000008 )
+ )
+ ( /51FE8E65 BH311-1A BH3 1,5V
+  ( + N-000008 )
+  ( - N-000009 )
+ )
+ ( /51FE8E68 BH311-1A BH4 1,5V
+  ( + N-000009 )
   ( - GND )
  )
  ( /51FEC00A SM0805 C1 0.1uF
@@ -84,51 +84,51 @@
   ( 1 /VIN_USB_5V )
   ( 2 /VIN_4-7V )
  )
- ( /51FE7EEE D2PAK F1 IRF4905SPBF
-  ( D N-000025 )
-  ( G N-000033 )
+ ( /51FE7EEE IRF4905SPBF F1 IRF4905SPBF
+  ( D N-000024 )
+  ( G N-000037 )
   ( S /VIN_BAT_4-7V )
  )
- ( /52152857 D2PAK F2 IRF4905SPBF
-  ( D N-000037 )
+ ( /52152857 IRF4905SPBF F2 IRF4905SPBF
+  ( D N-000035 )
   ( G /BAT_GATE )
   ( S /BAT_TYPE )
  )
- ( /52152856 D2PAK F3 IRF4905SPBF
-  ( D N-000036 )
+ ( /52152856 IRF4905SPBF F3 IRF4905SPBF
+  ( D N-000034 )
   ( G /BAT_GATE )
   ( S /VIN_BAT_4-7V )
  )
- ( /52152854 D2PAK F4 IRF4905SPBF
-  ( D N-000036 )
+ ( /52152854 IRF4905SPBF F4 IRF4905SPBF
+  ( D N-000034 )
   ( G /BAT_GATE )
   ( S /VIN_4-7V )
  )
  ( /52150035 BL-L2506 L0 RED
   ( 1 /STAB_4V )
-  ( 2 N-000043 )
+  ( 2 N-000042 )
  )
  ( /51FACC04 BL-L515 L0_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000080 )
+  ( CA N-000076 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE4213 BL-L515 L0_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000080 )
+  ( CA N-000076 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE4233 BL-L515 L0_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000080 )
+  ( CA N-000076 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /52150030 BL-L2506 L1 RED
   ( 1 /STAB_4V )
-  ( 2 N-000042 )
+  ( 2 N-000040 )
  )
  ( /51FE50E8 BL-L515 L1_1 RGB
   ( BC /A_LED1B )
@@ -154,222 +154,222 @@
  )
  ( /51FE51BC BL-L515 L2_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000053 )
+  ( CA N-000046 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE51C3 BL-L515 L2_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000053 )
+  ( CA N-000046 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE51C4 BL-L515 L2_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000053 )
+  ( CA N-000046 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /52150025 BL-L2506 L3 RED
   ( 1 /STAB_4V )
-  ( 2 N-000041 )
+  ( 2 N-000038 )
  )
  ( /51FE5245 BL-L515 L3_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000052 )
+  ( CA N-000056 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE523E BL-L515 L3_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000052 )
+  ( CA N-000056 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE523D BL-L515 L3_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000052 )
+  ( CA N-000056 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /51FE6067 SMD-LS1210 L4 RGB
-  ( BC N-000013 )
+  ( BC N-000041 )
   ( CA /STAB_4V )
-  ( GC N-000014 )
+  ( GC N-000093 )
   ( RC N-000015 )
  )
  ( /51FE52BA BL-L515 L4_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000094 )
+  ( CA N-000110 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE52C1 BL-L515 L4_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000094 )
+  ( CA N-000110 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE52C2 BL-L515 L4_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000094 )
+  ( CA N-000110 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /51FE5623 BL-L515 L5_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000110 )
+  ( CA N-000109 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE561C BL-L515 L5_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000110 )
+  ( CA N-000109 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE561B BL-L515 L5_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000110 )
+  ( CA N-000109 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /51FE5608 BL-L515 L6_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000101 )
+  ( CA N-000091 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE560F BL-L515 L6_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000101 )
+  ( CA N-000091 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE5610 BL-L515 L6_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000101 )
+  ( CA N-000091 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /51FE5607 BL-L515 L7_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000091 )
+  ( CA N-000090 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE5600 BL-L515 L7_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000091 )
+  ( CA N-000090 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE55FF BL-L515 L7_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000091 )
+  ( CA N-000090 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /51FE55EC BL-L515 L8_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000097 )
+  ( CA N-000098 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE55F3 BL-L515 L8_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000097 )
+  ( CA N-000098 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE55F4 BL-L515 L8_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000097 )
+  ( CA N-000098 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
  ( /51FE55EB BL-L515 L9_1 RGB
   ( BC /A_LED1B )
-  ( CA N-000102 )
+  ( CA N-000099 )
   ( GC /A_LED1G )
   ( RC /A_LED1R )
  )
  ( /51FE55E4 BL-L515 L9_2 RGB
   ( BC /A_LED2B )
-  ( CA N-000102 )
+  ( CA N-000099 )
   ( GC /A_LED2G )
   ( RC /A_LED2R )
  )
  ( /51FE55E3 BL-L515 L9_3 RGB
   ( BC /A_LED3B )
-  ( CA N-000102 )
+  ( CA N-000099 )
   ( GC /A_LED3G )
   ( RC /A_LED3R )
  )
- ( /5214FF0C SOT223 Q0 BCP56-16
-  ( 1 N-000080 )
-  ( 2 N-000082 )
+ ( /5214FF0C BCP56-16 Q0 BCP56-16
+  ( 1 N-000076 )
+  ( 2 N-000080 )
   ( 3 /STAB_4V )
  )
- ( /5214FF25 SOT223 Q1 BCP56-16
+ ( /5214FF25 BCP56-16 Q1 BCP56-16
   ( 1 N-000111 )
-  ( 2 N-000049 )
+  ( 2 N-000053 )
   ( 3 /STAB_4V )
  )
- ( /5214FF41 SOT223 Q2 BCP56-16
-  ( 1 N-000053 )
-  ( 2 N-000055 )
+ ( /5214FF41 BCP56-16 Q2 BCP56-16
+  ( 1 N-000046 )
+  ( 2 N-000050 )
   ( 3 /STAB_4V )
  )
- ( /5214FF6D SOT223 Q3 BCP56-16
-  ( 1 N-000052 )
-  ( 2 N-000051 )
+ ( /5214FF6D BCP56-16 Q3 BCP56-16
+  ( 1 N-000056 )
+  ( 2 N-000054 )
   ( 3 /STAB_4V )
  )
- ( /5214FF85 SOT223 Q4 BCP56-16
-  ( 1 N-000094 )
+ ( /5214FF85 BCP56-16 Q4 BCP56-16
+  ( 1 N-000110 )
   ( 2 N-000095 )
   ( 3 /STAB_4V )
  )
- ( /5214FEFB SOT223 Q5 BCP56-16
-  ( 1 N-000110 )
-  ( 2 N-000090 )
+ ( /5214FEFB BCP56-16 Q5 BCP56-16
+  ( 1 N-000109 )
+  ( 2 N-000089 )
   ( 3 /STAB_4V )
  )
- ( /5214FECC SOT223 Q6 BCP56-16
-  ( 1 N-000101 )
+ ( /5214FECC BCP56-16 Q6 BCP56-16
+  ( 1 N-000091 )
   ( 2 N-000092 )
   ( 3 /STAB_4V )
  )
- ( /5214FE98 SOT223 Q7 BCP56-16
-  ( 1 N-000091 )
+ ( /5214FE98 BCP56-16 Q7 BCP56-16
+  ( 1 N-000090 )
   ( 2 N-000096 )
   ( 3 /STAB_4V )
  )
- ( /5214FE71 SOT223 Q8 BCP56-16
-  ( 1 N-000097 )
-  ( 2 N-000098 )
+ ( /5214FE71 BCP56-16 Q8 BCP56-16
+  ( 1 N-000098 )
+  ( 2 N-000097 )
   ( 3 /STAB_4V )
  )
- ( /5214FE47 SOT223 Q9 BCP56-16
-  ( 1 N-000102 )
-  ( 2 N-000093 )
+ ( /5214FE47 BCP56-16 Q9 BCP56-16
+  ( 1 N-000099 )
+  ( 2 N-000094 )
   ( 3 /STAB_4V )
  )
  ( /51FE44D0 SM1206 R1 270
-  ( 1 N-000082 )
+  ( 1 N-000080 )
   ( 2 /PIO2_0 )
  )
  ( /51FE50DB SM1206 R2 270
-  ( 1 N-000049 )
+  ( 1 N-000053 )
   ( 2 /PIO2_1 )
  )
  ( /51FE51C9 SM1206 R3 270
-  ( 1 N-000055 )
+  ( 1 N-000050 )
   ( 2 /PIO2_2 )
  )
  ( /51FE5238 SM1206 R4 270
-  ( 1 N-000051 )
+  ( 1 N-000054 )
   ( 2 /PIO2_3 )
  )
  ( /51FE52C7 SM1206 R5 270
@@ -377,7 +377,7 @@
   ( 2 /PIO2_4 )
  )
  ( /51FE5616 SM1206 R6 270
-  ( 1 N-000090 )
+  ( 1 N-000089 )
   ( 2 /PIO2_5 )
  )
  ( /51FE5615 SM1206 R7 270
@@ -389,11 +389,11 @@
   ( 2 /PIO2_7 )
  )
  ( /51FE55F9 SM1206 R9 270
-  ( 1 N-000098 )
+  ( 1 N-000097 )
   ( 2 /PIO2_8 )
  )
  ( /51FE55DE SM1206 R10 270
-  ( 1 N-000093 )
+  ( 1 N-000094 )
   ( 2 /PIO2_9 )
  )
  ( /51FE4A01 SM1206 R11 180
@@ -434,7 +434,7 @@
  )
  ( /52151E0B SM1206 R20 330
   ( 1 /LED_BAT_3 )
-  ( 2 N-000041 )
+  ( 2 N-000038 )
  )
  ( /52151E2A SM1206 R21 330
   ( 1 /LED_BAT_2 )
@@ -442,19 +442,19 @@
  )
  ( /52151E2D SM1206 R22 330
   ( 1 /LED_BAT_1 )
-  ( 2 N-000042 )
+  ( 2 N-000040 )
  )
  ( /52151E30 SM1206 R23 330
   ( 1 /LED_BAT_0 )
-  ( 2 N-000043 )
+  ( 2 N-000042 )
  )
  ( /51FE6163 SM1206 R24 330
   ( 1 /LED_DBG_B )
-  ( 2 N-000013 )
+  ( 2 N-000041 )
  )
  ( /51FE6160 SM1206 R25 330
   ( 1 /LED_DBG_G )
-  ( 2 N-000014 )
+  ( 2 N-000093 )
  )
  ( /51FE6166 SM1206 R26 330
   ( 1 /LED_DBG_R )
@@ -506,7 +506,7 @@
  )
  ( /52153B9C SM1206 R38 10K
   ( 1 /VIN_4-7V )
-  ( 2 N-000109 )
+  ( 2 N-000107 )
  )
  ( /52153127 SM1206 R39 10K
   ( 1 /STAB_3.3V )
@@ -514,39 +514,39 @@
  )
  ( /51FECB30 SM1206 R40 1K
   ( 1 GND )
-  ( 2 N-000010 )
+  ( 2 N-000011 )
  )
  ( /51FECB33 SM1206 R41 1K
   ( 1 GND )
-  ( 2 N-000011 )
+  ( 2 N-000012 )
  )
  ( /51FECB38 SM1206 R42 1K
   ( 1 GND )
-  ( 2 N-000016 )
+  ( 2 N-000013 )
  )
  ( /51FECB3C SM1206 R43 1K
   ( 1 GND )
-  ( 2 N-000022 )
+  ( 2 N-000014 )
  )
  ( /51FECB3F SM1206 R44 1K
   ( 1 GND )
-  ( 2 N-000023 )
+  ( 2 N-000022 )
  )
  ( /51FECB43 SM1206 R45 1K
   ( 1 GND )
-  ( 2 N-000024 )
+  ( 2 N-000023 )
  )
  ( /51FEAB24 SM1206 R46 1K
   ( 1 GND )
-  ( 2 N-000028 )
+  ( 2 N-000027 )
  )
  ( /51FEAB28 SM1206 R47 1K
   ( 1 GND )
-  ( 2 N-000020 )
+  ( 2 N-000028 )
  )
  ( /51FEAB2A SM1206 R48 1K
   ( 1 GND )
-  ( 2 N-000027 )
+  ( 2 N-000026 )
  )
  ( /51FEAB2D SM1206 R49 1K
   ( 1 GND )
@@ -557,16 +557,16 @@
   ( 2 /VIN_USB_5V )
  )
  ( /52152B33 SM1206 R51 1K
-  ( 1 N-000033 )
+  ( 1 N-000037 )
   ( 2 GND )
  )
  ( /5215366B SM1206 R52 1K
-  ( 1 N-000109 )
+  ( 1 N-000107 )
   ( 2 /ADC_BAT )
  )
  ( /5215312E SM1206 R53 1K
   ( 1 GND )
-  ( 2 N-000037 )
+  ( 2 N-000035 )
  )
  ( /52152D92 SM1206 R54 1K
   ( 1 /VIN_USB_5V )
@@ -574,18 +574,18 @@
  )
  ( /51FFF108 SM1206 R55 33
   ( 1 /USB_DM )
-  ( 2 N-000009 )
+  ( 2 N-000010 )
  )
  ( /51FFF102 SM1206 R56 33
   ( 1 /USB_DP )
-  ( 2 N-000035 )
+  ( 2 N-000043 )
  )
  ( /521525A8 SM1206 R57 1.5K
   ( 1 /STAB_3.3V )
-  ( 2 N-000035 )
+  ( 2 N-000043 )
  )
  ( /52153BA0 SM1206 R58 4.7K
-  ( 1 N-000109 )
+  ( 1 N-000107 )
   ( 2 GND )
  )
  ( /52153DE7 SM1206 R59 100K
@@ -597,32 +597,32 @@
   ( 2 /BAT_GATE )
  )
  ( /52A4C237 SM1206 R61 470K
-  ( 1 N-000032 )
+  ( 1 N-000031 )
   ( 2 GND )
  )
  ( /52A4C233 SM1206 R62 1.1M
   ( 1 /STAB_4V )
-  ( 2 N-000032 )
+  ( 2 N-000031 )
  )
  ( /51FE9755 USB_MINI_175 S1 MINIUSB_B
   ( 1 /VIN_USB_5V )
-  ( 2 N-000009 )
-  ( 3 N-000035 )
+  ( 2 N-000010 )
+  ( 3 N-000043 )
   ( 4 ? )
   ( 5 GND )
  )
  ( /51FE9992 SS12D11 SW1 SS12D11
   ( 1 ? )
-  ( 2 N-000004 )
-  ( 3 N-000025 )
+  ( 2 N-000006 )
+  ( 3 N-000024 )
  )
  ( /51FEAA84 SBS1004 SW2 SBS1004
   ( 1 /BOOT_LDR )
-  ( 2 N-000028 )
+  ( 2 N-000027 )
   ( 3 /DBG_FLAG )
-  ( 4 N-000020 )
+  ( 4 N-000028 )
   ( 5 /FLAG_1 )
-  ( 6 N-000027 )
+  ( 6 N-000026 )
   ( 7 /FLAG_2 )
   ( 8 N-000019 )
  )
@@ -676,7 +676,7 @@
   ( 47 /PIO1_7 )
   ( 48 /LED_DBG_B )
  )
- ( /51FA0FDC TO-263-3 U2 LM3940IS-3.3
+ ( /52AD6CD9 LM3940 U2 LM3940IS-3.3
   ( 1 GND )
   ( 2 /STAB_3.3V )
   ( 3 /VIN_4-7V )
@@ -686,7 +686,7 @@
   ( 2 GND )
   ( 3 GND )
   ( 4 /VIN_4-7V )
-  ( 5 N-000032 )
+  ( 5 N-000031 )
   ( 6 GND )
   ( 7 GND )
   ( 8 /STAB_4V )

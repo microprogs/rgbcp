@@ -1,4 +1,4 @@
-update=Sun 15 Dec 2013 14:05:39 MSK
+update=Sun 15 Dec 2013 16:26:59 MSK
 version=1
 last_client=kicad
 [eeschema]
@@ -87,7 +87,7 @@ TxtLar=120
 MSegLar=150
 LastNetListRead=
 [pcbnew/libraries]
-LibDir=
+LibDir=/home/xorror/work/rgbcp/hardware
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -99,6 +99,6 @@ LibName8=led
 LibName9=dip_sockets
 LibName10=pga_sockets
 LibName11=valves
-LibName12=/home/xorror/work/rgbcp/hardware/rgbcp
+LibName12=rgbcp
 [general]
 version=1

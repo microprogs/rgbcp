@@ -1,0 +1,133 @@
+Сборка GNU Toolchain ARM Cortex-M3
+
+Сборка своего GNU Toolchain для ARM Cortex-M3.
+
+Делай ноль - подразумевается наличие машины с Ubuntu 12.10/amd64.
+
+Базовая директория для всех извращений:
+
+~/gnu-cortex-m3
+
+Делай раз - установить базовые пакеты:
+sudo apt-get install wget build-essential flex bison autoconf texinfo \
+ libncurses5-dev checkinstall libgmp3-dev libmpfr-dev libmpc-dev \
+ zlib1g zlib1g-dev libppl0.11-dev libcloog-ppl-dev mc
+
+Делай два - выкачать необходимые пакеты для сборки:
+
+~/gnu-cortex-m3$ mkdir toolchain ; mkdir tmp ; cd tmp
+~/gnu-cortex-m3/tmp$ wget http://ftp.gnu.org/gnu/binutils/binutils-2.21.tar.bz2
+~/gnu-cortex-m3/tmp$ wget http://ftp.gnu.org/gnu/gcc/gcc-4.5.2/gcc-4.5.2.tar.bz2
+~/gnu-cortex-m3/tmp$ tar -vxjf binutils-2.21.tar.bz2
+~/gnu-cortex-m3/tmp$ tar -vxjf gcc-4.5.2.tar.bz2
+
+Делай три - сборка binutils (ассемблер, линкер, всякие бинарные конвертеры и т.п.):
+
+~/gnu-cortex-m3/tmp$ cd binutils-2.21
+~/gnu-cortex-m3/tmp/binutils-2.21$ mkdir build ; cd build
+
+~/gnu-cortex-m3/tmp/binutils-2.21/build$ ../configure \
+  --prefix=$HOME/gnu-cortex-m3/toolchain \
+  --build=amd64-pc-linux-gnu \
+  --host=amd64-pc-linux-gnu \
+  --target=arm-none-eabi \
+  --enable-gold=no \
+  --enable-ld=yes \
+  --disable-libada \
+  --disable-libssp \
+  --disable-libgomp \
+  --disable-build-with-cxx \
+  --disable-lto \
+  --with-float=soft \
+  --enable-interwork \
+  --enable-thumb \
+  --enable-multilib \
+  --with-gnu-as \
+  --with-gnu-ld \
+  --disable-nls \
+  --disable-libstdcxx-pch \
+  --disable-libmudflap \
+  --disable-shared \
+  --enable-static \
+  --with-headers=yes \
+  --enable-languages=c
+
+make
+
+sudo make install
+
+export PATH=$HOME/gnu-cortex-m3/toolchain/bin:$PATH
+
+Делай четыре - сборка минимального gcc:
+
+~/gnu-cortex-m3/tmp$ cd gcc-4.5.2
+~/gnu-cortex-m3/tmp/gcc-4.5.2$ mkdir build ; cd build
+
+~/gnu-cortex-m3/tmp/gcc-4.5.2/build$ ../configure \
+  --prefix=$HOME/gnu-cortex-m3/toolchain \
+  --build=amd64-pc-linux-gnu \
+  --host=amd64-pc-linux-gnu \
+  --target=arm-none-eabi \
+  --enable-gold=no \
+  --enable-ld=yes \
+  --disable-libada \
+  --disable-libssp \
+  --disable-libgomp \
+  --disable-build-with-cxx \
+  --disable-lto \
+  --with-float=soft \
+  --enable-interwork \
+  --enable-thumb \
+  --enable-multilib \
+  --with-gnu-as \
+  --with-gnu-ld \
+  --disable-nls \
+  --disable-libstdcxx-pch \
+  --disable-libmudflap \
+  --disable-shared \
+  --enable-static \
+  --without-headers \
+  --enable-languages=c \
+  --with-libiconv-prefix=$HOME/gnu-cortex-m3/toolchain \
+  --with-gmp=$HOME/gnu-cortex-m3/toolchain \
+  --with-mpfr=$HOME/gnu-cortex-m3/toolchain \
+  --with-cpu=cortex-m3 \
+  --with-tune=cortex-m3 \
+  --with-mode=thumb \
+  --disable-threads \
+  --enable-c99 \
+  --without-gnattools \
+  --without-target-libffi \
+  --without-target-libada \
+  --without-target-libstdc++-v3 \
+  --without-target-libgfortran \
+  --without-target-zlib \
+  --without-zlib \
+  --without-target-libjava \
+  --without-target-libobjc \
+  --without-target-libgomp \
+  --without-target-libmudflap \
+  --without-target-libssp \
+  --without-target-boehm-gc \
+  --with-system-zlib
+
+make
+
+sudo make install
+
+Делай пять - удобная установка окружения (портить на всю жизнь $PATH - не лучшая идея):
+
+Добавить в ~/.bashrc:
+
+alias arm-cortex-m3='export PATH=$HOME/gnu-cortex-m3/toolchain/bin:$PATH'
+
+Теперь, если вдруг в данной терминальной сессии в данной папке нам захотелось собирать бинари для ARM Cortex-M3:
+
+~/xxx$ arm-cortex-m3
+~/xxx$ arm-none-eabi-gcc --version
+~/xxx$ arm-none-eabi-as --version
+~/xxx$ arm-none-eabi-ld --version
+~/xxx$ arm-none-eabi-objcopy --version
+
+О том как собрать рабочую прошивку для LPC1343 в следующий раз...
+

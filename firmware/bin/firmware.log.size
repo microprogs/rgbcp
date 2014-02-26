@@ -1,0 +1,10 @@
+firmware.elf  :
+section             size         addr
+.text             0x3a88          0x0
+.data              0x180   0x10000000
+.bss               0x12c   0x10000180
+.comment            0x11          0x0
+.ARM.attributes     0x33          0x0
+Total             0x3d78
+
+

@@ -1,0 +1,6 @@
+#sudo mcedit /lib/udev/rules.d/45-fmusbhid.rules
+
+# FMUSB HID Permissions
+BUS!="usb", ACTION!="add", SUBSYSTEM!=="usb_device", GOTO="kcontrol_rules_end"
+SYSFS{idVendor}=="1fc9", SYSFS{idProduct}=="ABCD", MODE="664", GROUP="plugdev"
+LABEL="kcontrol_rules_end"

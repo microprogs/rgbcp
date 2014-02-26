@@ -12,4 +12,7 @@ fi
 
 sudo umount $2
 sudo dd if=$1 of=$2 bs=512 count=32768 seek=4 conv=notrunc
+sudo sync
+sudo sync
+sudo sync
 

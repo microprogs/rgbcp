@@ -233,7 +233,8 @@ void DPCDispatch(void)
 	if (dpc_is_run)
 	{
 		memset((void*)ret_buf, 0, 64);
-		uint32_t cmdCode = *((uint32_t*)&dpc_req_buf[4]);
+		uint32_t *pcmdCode = ((uint32_t*)&dpc_req_buf[4]);	
+		uint32_t cmdCode = *pcmdCode;
 		uint8_t *params = (uint8_t*)&dpc_req_buf[8];
 		uint8_t *ret = (uint8_t*)&ret_buf[8];
 		memcpy((void*)ret_buf, (void*)dpc_req_buf, 8);

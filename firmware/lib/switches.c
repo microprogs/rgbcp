@@ -1,13 +1,17 @@
 #include <switches.h>
 #include <gpio.h>
 
+
 void init_switches(void)
 {
-//	gpio_set_dir_in(SWITCH_DBG_PORT, SWITCH_DBG_BIT);
+	// PIO3_0 - DBG_FLAG	
+	gpio_set_dir_in(3, 0);
 }
+
 
 uint32_t switch_dbg_is_set(void)
 {
-//	return gpio_get_data_bit(SWITCH_DBG_PORT, SWITCH_DBG_BIT) ? 0 : 1;
+	// PIO3_0 - DBG_FLAG
+	return gpio_get_data_bit(3, 0) ? 0 : 1;
 }
 

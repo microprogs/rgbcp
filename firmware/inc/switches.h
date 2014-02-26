@@ -9,5 +9,6 @@ void init_switches(void);
 
 uint32_t switch_dbg_is_set(void);
 
+
 #endif
 

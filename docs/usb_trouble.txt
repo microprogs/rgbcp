@@ -1,0 +1,2 @@
+if you can't detect USB BOOT FLASHER - you should use:
+echo 30 > /sys/module/usb_storage/parameters/delay_use 

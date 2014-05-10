@@ -49,9 +49,6 @@ public:
 
 	int sendRawOutReport(const QByteArray &outData);
 	int recvRawInReport(QByteArray &inData);
-
-	int sendRawFeatureReport(const QByteArray &outData);
-	int recvRawFeatureReport(QByteArray &inData);
 };
 
 

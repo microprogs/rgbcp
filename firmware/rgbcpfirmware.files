@@ -58,3 +58,5 @@ utils/fwsum/Makefile
 utils/fwread.sh
 utils/fwwrite.sh
 Makefile
+src/thread_buttons.c
+inc/thread_buttons.h

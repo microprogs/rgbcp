@@ -3,10 +3,13 @@
 
 #include <config.h>
 #include <gpio.h>
+#include <leds.h>
+#include <buttons.h>
+#include "threads.h"
 
 
-volatile uint32_t timer16_0_counter = 0;
-volatile uint32_t timer16_1_counter = 0;
+//volatile uint32_t timer16_0_counter = 0;
+//volatile uint32_t timer16_1_counter = 0;
 
 
 
@@ -22,8 +25,11 @@ volatile uint32_t timer16_1_counter = 0;
 ******************************************************************************/
 void timer16_0_irqhandler(void)
 {
-	timer16_0_counter++;
 	LPC_TMR16B0->IR = 1;			/* clear interrupt flag */
+	//timer16_0_counter++;
+
+	tick_thread_16_0();
+
 	return;
 }
 
@@ -40,7 +46,10 @@ void timer16_0_irqhandler(void)
 void timer16_1_irqhandler(void)
 {
 	LPC_TMR16B1->IR = 1;			/* clear interrupt flag */
-	timer16_1_counter++;
+	//timer16_1_counter++;
+
+	tick_thread_16_1();
+
 	return;
 }
 

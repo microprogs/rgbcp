@@ -88,10 +88,14 @@ void timer16_0_irq_handler(void)
 
 void timer16_1_irq_handler(void)
 {
+	extern void timer16_1_irqhandler(void);
+	timer16_1_irqhandler();
 }
 
 void timer32_0_irq_handler(void)
 {
+	extern void timer32_0_irqhandler(void);
+	timer32_0_irqhandler();
 }
 
 void timer32_1_irq_handler(void)

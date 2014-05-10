@@ -25,6 +25,8 @@
 #define ADC_NUM			8			/* for LPC13xx */
 #define ADC_CLK			4500000		/* set to 4.5Mhz */
 
+#include "types.h"
+
 extern void ADC_IRQHandler( void );
 extern void ADCInit( uint32_t ADC_Clk );
 extern uint32_t ADCRead( uint8_t channelNum );

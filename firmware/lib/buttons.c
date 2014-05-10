@@ -64,3 +64,67 @@ uint32_t btn_5_is_set(void)
 	return gpio_get_data_bit(0, 9) ? 0 : 1;
 }
 
+
+
+
+
+///////////////////////// FSM ////////////////////////////
+
+
+#define BTN_STATE_ON 0
+#define BTN_STATE_NOISE_ON_OFF 1
+#define BTN_STATE_OFF 2
+#define BTN_STATE_NOISE_OFF_ON 3
+
+
+
+void btn_fsm_init(BTN_CONTEXT *ctx, btn_is_set_t ptrBtnIsSetFunc, btn_action_t ptrBtnAction, int noise_time_1, int noise_time_2)
+{
+	ctx->btnState = BTN_STATE_ON;
+	ctx->btnCnt = 0;
+	ctx->btn_is_set = ptrBtnIsSetFunc;
+	ctx->btn_action = ptrBtnAction;
+	ctx->noise_time_1 = noise_time_1;
+	ctx->noise_time_2 = noise_time_2;
+}
+
+void btn_fsm_step(BTN_CONTEXT *ctx)
+{
+	if (ctx->btnState == BTN_STATE_ON)
+	{
+		if (ctx->btn_is_set())
+		{
+			ctx->btn_action(); // call button click
+
+			ctx->btnState = BTN_STATE_NOISE_ON_OFF;
+			ctx->btnCnt = 0;
+		}
+	}
+	else if (ctx->btnState == BTN_STATE_NOISE_ON_OFF)
+	{
+		ctx->btnCnt++;
+		if (ctx->btnCnt >= ctx->noise_time_1)
+		{
+			ctx->btnCnt = 0;
+			ctx->btnState = BTN_STATE_OFF;
+		}
+	}
+	else if (ctx->btnState == BTN_STATE_OFF)
+	{
+		if (!ctx->btn_is_set())
+		{
+			ctx->btnCnt = 0;
+			ctx->btnState = BTN_STATE_NOISE_OFF_ON;
+		}
+	}
+	else if (ctx->btnState == BTN_STATE_NOISE_OFF_ON)
+	{
+		ctx->btnCnt++;
+		if ((ctx->btnCnt >= ctx->noise_time_2) && (!ctx->btn_is_set()))
+		{
+			ctx->btnCnt = 0;
+			ctx->btnState = BTN_STATE_ON;
+		}
+	}
+}
+

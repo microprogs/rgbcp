@@ -28,9 +28,11 @@ void led_bat_3_power_off(void);
 void led_bat_3_power_on(void);
 
 
+void print_bat_leds(uint32_t val);  // val=0-15
+
 
 void led_ann_cs_all_off(void);
-void led_ann_cs_one_on(uint32_t num);
+void led_ann_cs_one_on(uint32_t num);  // num=0-9
 
 
 // PIO1_0 - LED_ANN_1B
@@ -68,6 +70,40 @@ void led_ann_3g_on(void);
 // PIO1_8 - LED_ANN_3R
 void led_ann_3r_off(void);
 void led_ann_3r_on(void);
+
+
+
+
+
+////////////////////////// LED FSM /////////////////////////////////
+typedef void (*led_off_t)(void);
+typedef void (*led_on_t)(void);
+
+typedef struct _LED_CONTEXT
+{
+	int ledBrightMax;
+	int ledBrightCur;
+	int ledState;
+	int ledTimeCnt;
+	led_off_t led_off;
+	led_on_t led_on;
+} LED_CONTEXT;
+
+void led_fsm_init(LED_CONTEXT *ctx, int brightMax, led_off_t led_off, led_on_t led_on);
+void led_fsm_step(LED_CONTEXT *ctx);
+void led_fsm_set_bright(LED_CONTEXT *ctx, int bright);  // 0..brightMax
+int led_fsm_get_bright(LED_CONTEXT *ctx);
+
+
+////////////////////// LED MATRIX FSM //////////////////////
+void led_matrix_fsm_init(uint32_t maxBright, uint32_t maxGlobalBright);
+void led_matrix_fsm_step();
+void led_matrix_fsm_set_global_bright(uint32_t globalBright); //1..5
+uint32_t led_matrix_fsm_get_global_bright();
+void led_matrix_fsm_set_rgb_bright(uint32_t line0_9, uint32_t row0_2, uint8_t br_red, uint8_t br_green, uint8_t br_blue);
+uint8_t led_matrix_fsm_get_red(uint32_t line0_9, uint32_t row0_2);
+uint8_t led_matrix_fsm_get_green(uint32_t line0_9, uint32_t row0_2);
+uint8_t led_matrix_fsm_get_blue(uint32_t line0_9, uint32_t row0_2);
 
 
 

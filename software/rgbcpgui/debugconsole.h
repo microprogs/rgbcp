@@ -4,18 +4,21 @@
 #include <QObject>
 #include <QStringList>
 #include <QTextStream>
-#include "usbhid.h"
-#include "fmusbhid.h"
-#include "fmusbterminal.h"
+#include "mydevice.h"
+#include "mydeviceproto.h"
 
 
 enum CmdType {ctUnknown, ctHelp, ctExit,
-			  ctTest, ctTestParam, ctSwGet, ctLedsOff, ctLedsRed, ctLedsGreen,
-			  ctGetDebugBuf, ctSetDebugBuf,
-			  ctFmSendData, ctFmRecvData,
-			  ctFmPowerUpAnalog, ctFmPowerUpDigital, ctFmPowerUpDigitalAnalog, ctFmPowerDown,
-			  ctFmSetProperty, ctFmGetProperty,
-			  ctFmGetRev, ctFmGetIntStatus, ctFmTuneFreq, ctFmSeekStart, ctFmTuneStatus};
+              ctTest, ctTestParam
+
+              //ctSwGet, ctLedsOff, ctLedsRed, ctLedsGreen,
+              //ctGetDebugBuf, ctSetDebugBuf,
+              //ctFmSendData, ctFmRecvData,
+              //ctFmPowerUpAnalog, ctFmPowerUpDigital, ctFmPowerUpDigitalAnalog, ctFmPowerDown,
+              //ctFmSetProperty, ctFmGetProperty,
+              //ctFmGetRev, ctFmGetIntStatus, ctFmTuneFreq, ctFmSeekStart, ctFmTuneStatus
+
+             };
 enum CmdError {ceOk, ceParams, ceRun};
 
 
@@ -28,12 +31,12 @@ private:
 	QTextStream qout;
 	QTextStream qerr;
 
-	bool fmUsbOpen(FmUsbHid &fm);
-	void fmUsbClose(FmUsbHid &fm);
+    bool devUsbOpen(MyDevice &mydev);
+    void devUsbClose(MyDevice &mydev);
 
 	void printHelp();
 	CmdType readCmd(QStringList &params);
-	CmdError runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStringList &params);
+    CmdError runCmd(MyDeviceProto &mydevproto, CmdType cmdType, const QStringList &params);
 
 
 public:

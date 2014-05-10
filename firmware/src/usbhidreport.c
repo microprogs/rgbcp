@@ -4,6 +4,7 @@
 #include <string.h>
 #include <debug.h>
 #include <armv7m.h>
+#include "adc.h"
 
 
 /*
@@ -18,7 +19,10 @@ Reply:
 // cmdCode
 #define CMD_TEST       						0x00000001
 #define CMD_TEST_PARAM 						0x00000002
-#define CMD_SW_GET     						0x00000003
+
+#define CMD_READ_ADC						0x00000003
+
+//#define CMD_SW_GET     						0x00000003
 #define CMD_LEDS_OFF   						0x00000004
 #define CMD_LEDS_RED   						0x00000005
 #define CMD_LEDS_GREEN 						0x00000006
@@ -63,9 +67,18 @@ void cmdTestParam(uint8_t* params, uint8_t* ret)
 
 // params[0]
 // ret[1]
-void cmdSwGet(uint8_t* params, uint8_t* ret)
+//void cmdSwGet(uint8_t* params, uint8_t* ret)
+//{
+//	ret[0] = switch_dbg_is_set() ? '\xF1' : '\xF0';
+//}
+//uint32_t bat_val = ADCRead(0);
+
+// params[0]
+// ret[4]
+void cmdReadAdc(uint8_t* params, uint8_t* ret)
 {
-	ret[0] = switch_dbg_is_set() ? '\xF1' : '\xF0';
+	uint32_t bat_val = ADCRead(0);
+	memcpy(ret, (unsigned char*)&bat_val, 4);
 }
 
 // params[0]
@@ -181,8 +194,12 @@ void processCommand(uint32_t cmdCode, uint8_t* params, uint8_t* ret)
 		cmdTestParam(params, ret);
 		break;
 
-	case CMD_SW_GET:
-		cmdSwGet(params,ret);
+//	case CMD_SW_GET:
+//		cmdSwGet(params,ret);
+//		break;
+
+	case CMD_READ_ADC:
+		cmdReadAdc(params,ret);
 		break;
 
 	case CMD_LEDS_OFF:

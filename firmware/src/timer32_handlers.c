@@ -1,8 +1,10 @@
 #include "LPC13xx.h"
 #include "timer32.h"
+#include "leds.h"
+#include "threads.h"
 
-volatile uint32_t timer32_0_counter = 0;
-volatile uint32_t timer32_1_counter = 0;
+//volatile uint32_t timer32_0_counter = 0;
+//volatile uint32_t timer32_1_counter = 0;
 
 
 
@@ -19,7 +21,10 @@ volatile uint32_t timer32_1_counter = 0;
 void timer32_0_irqhandler(void)
 {
   LPC_TMR32B0->IR = 1;			/* clear interrupt flag */
-  timer32_0_counter++;
+  //timer32_0_counter++;
+
+  tick_thread_32_0();
+
   return;
 }
 
@@ -33,10 +38,12 @@ void timer32_0_irqhandler(void)
 ** Returned value:		None
 **
 ******************************************************************************/
-void timer32_1_irqhandler(void)
+// USED BY ROM USB HID DRV
+/*void timer32_1_irqhandler(void)
 {
-  LPC_TMR32B1->IR = 1;			/* clear interrupt flag */
-  timer32_1_counter++;
+  LPC_TMR32B1->IR = 1;			// clear interrupt flag
+  //timer32_1_counter++;
   return;
-}
+}*/
+
 

@@ -1,6 +1,24 @@
 #include "debugconsole.h"
 #include <QTime>
 
+/*
+class DebugConsole
+{
+private:
+    bool devUsbOpen(MyDevice &mydev);
+    void devUsbClose(MyDevice &mydev);
+
+    void printHelp();
+    CmdType readCmd(QStringList &params);
+    CmdError runCmd(MyDeviceProto &mydevproto, CmdType cmdType, const QStringList &params);
+
+
+public:
+    int exec();
+};
+
+*/
+
 
 DebugConsole::DebugConsole(QObject *parent) :
 	QObject(parent),
@@ -16,26 +34,26 @@ DebugConsole::~DebugConsole()
 
 void DebugConsole::usage()
 {
-	qout << "Usage: fmusbgui [option]" << endl;
+    qout << "Usage: rgbcpgui [option]" << endl;
 	qout << "    option:" << endl;
-	qout << "      -d, --debug  -  Run debug console for FM-USB" << endl;
+    qout << "      -d, --debug  -  Run debug console for RGBCP" << endl;
 	qout << "      -h, --help   -  Show this help" << endl;
-	qout << "      no option    -  Run GUI for FM-USB" << endl;
+    qout << "      no option    -  Run GUI for RGBCP" << endl;
 }
 
-bool DebugConsole::fmUsbOpen(FmUsbHid &fm)
+bool DebugConsole::devUsbOpen(MyDevice &mydev)
 {
-	if (!fm.open())
+    if (!mydev.open())
 	{
-		qout << "ERROR: FM-USB NOT FOUND!" << endl;
+        qout << "ERROR: RGBCP NOT FOUND!" << endl;
 		return false;
 	}
-	qout << "FM-USB: Device opened" << endl;
+    qout << "RGBCP: Device opened" << endl;
 
 	UsbHidInfo info;
-	if (fm.isOpen() && fm.getInfo(info))
+    if (mydev.isOpen() && mydev.getInfo(info))
 	{
-		qout << "FM-USB: Device info:" << endl;
+        qout << "RGBCP: Device info:" << endl;
 		qout << QString("    vendorId = 0x%1").arg(info.vendorId, 4, 16, QChar('0')) << endl;
 		qout << QString("    productId = 0x%1").arg(info.productId, 4, 16, QChar('0')) << endl;
 		qout << QString("    releaseNumber = 0x%1").arg(info.releaseNumber, 4, 16, QChar('0')) << endl;
@@ -53,10 +71,10 @@ bool DebugConsole::fmUsbOpen(FmUsbHid &fm)
 	return true;
 }
 
-void DebugConsole::fmUsbClose(FmUsbHid &fm)
+void DebugConsole::devUsbClose(MyDevice &mydev)
 {
-	fm.close();
-	qout << "FM-USB: Device closed" << endl;
+    mydev.close();
+    qout << "RGBCP: Device closed" << endl;
 }
 
 void DebugConsole::printHelp()
@@ -66,25 +84,25 @@ void DebugConsole::printHelp()
 	qout << "List of commands:" << endl;
 	qout << "    test                                          -  Send test command and get test result" << endl;
 	qout << "    testparam <[16] msg>                          -  Send test loopback-command and get result" << endl;
-	qout << "    swget                                         -  Get switch state" << endl;
-	qout << "    ledsoff                                       -  Power off all leds" << endl;
-	qout << "    ledsred                                       -  Power on red led" << endl;
-	qout << "    ledsgreen                                     -  Power on green led" << endl;
-	qout << "    getdebugbuf <[1] num>                         -  Get Debug Buffer <num> = 0..3" << endl;
-	qout << "    setdebugbuf <[1] num> <[32] data>             -  Set Debug Buffer <num> = 0..3 with <data>" << endl;
-	qout << "    fmsenddata <[1-8] data>                       -  Send data (1-8 bytes) to Si4705 via I2C bus" << endl;
-	qout << "    fmrecvdata <[1] size>                         -  Recv data (<size> = 1..16 bytes) from Si4705 via I2C bus" << endl;
-	qout << "    fmpowerupanalog                               -  Power Up Si4705 in Analog mode" << endl;
-	qout << "    fmpowerupdigital                              -  Power Up Si4705 in Digital mode" << endl;
-	qout << "    fmpowerupdigitalanalog                        -  Power Up Si4705 in Digital & Analog mode" << endl;
-	qout << "    fmpowerdown                                   -  Power Down Si4705" << endl;
-	qout << "    fmsetproperty <[2] addr> <[2] val>            -  Set Property on Si4705 (<addr>,<val> = 0x0000..0xFFFF)" << endl;
-	qout << "    fmgetproperty <[2] addr>                      -  Get Property on Si4705 (<addr> = 0x0000..0xFFFF)" << endl;
-	qout << "    fmgetrev                                      -  Get Info from Si4705" << endl;
-	qout << "    fmgetintstatus                                -  Get Interrupt Status from Si4705" << endl;
-	qout << "    fmtunefreq <[2] freq> <[1] antcap>            -  Set FM-receiver frequency in 10KHz units (<freq> = 0x222E..0x2A26, <antcap>=0x00..0xBF)" << endl;
-	qout << "    fmseekstart <up|down> <wrap|halt>             -  Begin searching valid channel on Si4705 (<up|down> - direction, <wrap|halt> - action on bound)" << endl;
-	qout << "    fmtunestatus <CancelSeek=y|n> <ClearSTC=y|n>  -  Return status of [fmtunefreq] or [fmseekstart] commands" << endl;
+    //qout << "    swget                                         -  Get switch state" << endl;
+    //qout << "    ledsoff                                       -  Power off all leds" << endl;
+    //qout << "    ledsred                                       -  Power on red led" << endl;
+    //qout << "    ledsgreen                                     -  Power on green led" << endl;
+    //qout << "    getdebugbuf <[1] num>                         -  Get Debug Buffer <num> = 0..3" << endl;
+    //qout << "    setdebugbuf <[1] num> <[32] data>             -  Set Debug Buffer <num> = 0..3 with <data>" << endl;
+    //qout << "    fmsenddata <[1-8] data>                       -  Send data (1-8 bytes) to Si4705 via I2C bus" << endl;
+    //qout << "    fmrecvdata <[1] size>                         -  Recv data (<size> = 1..16 bytes) from Si4705 via I2C bus" << endl;
+    //qout << "    fmpowerupanalog                               -  Power Up Si4705 in Analog mode" << endl;
+    //qout << "    fmpowerupdigital                              -  Power Up Si4705 in Digital mode" << endl;
+    //qout << "    fmpowerupdigitalanalog                        -  Power Up Si4705 in Digital & Analog mode" << endl;
+    //qout << "    fmpowerdown                                   -  Power Down Si4705" << endl;
+    //qout << "    fmsetproperty <[2] addr> <[2] val>            -  Set Property on Si4705 (<addr>,<val> = 0x0000..0xFFFF)" << endl;
+    //qout << "    fmgetproperty <[2] addr>                      -  Get Property on Si4705 (<addr> = 0x0000..0xFFFF)" << endl;
+    //qout << "    fmgetrev                                      -  Get Info from Si4705" << endl;
+    //qout << "    fmgetintstatus                                -  Get Interrupt Status from Si4705" << endl;
+    //qout << "    fmtunefreq <[2] freq> <[1] antcap>            -  Set FM-receiver frequency in 10KHz units (<freq> = 0x222E..0x2A26, <antcap>=0x00..0xBF)" << endl;
+    //qout << "    fmseekstart <up|down> <wrap|halt>             -  Begin searching valid channel on Si4705 (<up|down> - direction, <wrap|halt> - action on bound)" << endl;
+    //qout << "    fmtunestatus <CancelSeek=y|n> <ClearSTC=y|n>  -  Return status of [fmtunefreq] or [fmseekstart] commands" << endl;
 	qout << "    help                                          -  Show this help" << endl;
 	qout << "    exit                                          -  Close FM-USB and exit from debug console" << endl;
 	qout << endl;
@@ -113,49 +131,49 @@ CmdType DebugConsole::readCmd(QStringList &params)
 		return ctTest;
 	else if (cmdName == QString("testparam"))
 		return ctTestParam;
-	else if (cmdName == QString("swget"))
-		return ctSwGet;
-	else if (cmdName == QString("ledsoff"))
-		return ctLedsOff;
-	else if (cmdName == QString("ledsred"))
-		return ctLedsRed;
-	else if (cmdName == QString("ledsgreen"))
-		return ctLedsGreen;
-	else if (cmdName == QString("getdebugbuf"))
-		return ctGetDebugBuf;
-	else if (cmdName == QString("setdebugbuf"))
-		return ctSetDebugBuf;
-	else if (cmdName == QString("fmsenddata"))
-		return ctFmSendData;
-	else if (cmdName == QString("fmrecvdata"))
-		return ctFmRecvData;
-	else if (cmdName == QString("fmpowerupanalog"))
-		return ctFmPowerUpAnalog;
-	else if (cmdName == QString("fmpowerupdigital"))
-		return ctFmPowerUpDigital;
-	else if (cmdName == QString("fmpowerupdigitalanalog"))
-		return ctFmPowerUpDigitalAnalog;
-	else if (cmdName == QString("fmpowerdown"))
-		return ctFmPowerDown;
-	else if (cmdName == QString("fmsetproperty"))
-		return ctFmSetProperty;
-	else if (cmdName == QString("fmgetproperty"))
-		return ctFmGetProperty;
-	else if (cmdName == QString("fmgetrev"))
-		return ctFmGetRev;
-	else if (cmdName == QString("fmgetintstatus"))
-		return ctFmGetIntStatus;
-	else if (cmdName == QString("fmtunefreq"))
-		return ctFmTuneFreq;
-	else if (cmdName == QString("fmseekstart"))
-		return ctFmSeekStart;
-	else if (cmdName == QString("fmtunestatus"))
-		return ctFmTuneStatus;
+    //else if (cmdName == QString("swget"))
+    //	return ctSwGet;
+    //else if (cmdName == QString("ledsoff"))
+    //	return ctLedsOff;
+    //else if (cmdName == QString("ledsred"))
+    //	return ctLedsRed;
+    //else if (cmdName == QString("ledsgreen"))
+    //	return ctLedsGreen;
+    //else if (cmdName == QString("getdebugbuf"))
+    //	return ctGetDebugBuf;
+    //else if (cmdName == QString("setdebugbuf"))
+    //	return ctSetDebugBuf;
+    //else if (cmdName == QString("fmsenddata"))
+    //	return ctFmSendData;
+    //else if (cmdName == QString("fmrecvdata"))
+    //	return ctFmRecvData;
+    //else if (cmdName == QString("fmpowerupanalog"))
+    //	return ctFmPowerUpAnalog;
+    //else if (cmdName == QString("fmpowerupdigital"))
+    //	return ctFmPowerUpDigital;
+    //else if (cmdName == QString("fmpowerupdigitalanalog"))
+    //	return ctFmPowerUpDigitalAnalog;
+    //else if (cmdName == QString("fmpowerdown"))
+    //	return ctFmPowerDown;
+    //else if (cmdName == QString("fmsetproperty"))
+    //	return ctFmSetProperty;
+    //else if (cmdName == QString("fmgetproperty"))
+    //	return ctFmGetProperty;
+    //else if (cmdName == QString("fmgetrev"))
+    //	return ctFmGetRev;
+    //else if (cmdName == QString("fmgetintstatus"))
+    //	return ctFmGetIntStatus;
+    //else if (cmdName == QString("fmtunefreq"))
+    //	return ctFmTuneFreq;
+    //else if (cmdName == QString("fmseekstart"))
+    //	return ctFmSeekStart;
+    //else if (cmdName == QString("fmtunestatus"))
+    //	return ctFmTuneStatus;
 
 	return ctUnknown;
 }
 
-CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStringList &params)
+CmdError DebugConsole::runCmd(MyDeviceProto &mydevproto, CmdType cmdType, const QStringList &params)
 {
 	switch (cmdType)
 	{
@@ -163,7 +181,7 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 		if (params.isEmpty())
 		{
 			QByteArray retTest;
-			if (fmterm.cmdTest(retTest))
+            if (mydevproto.cmdTest(retTest))
 			{
 				qout << QString("test: [%1]{%2} == \"%3\"\n")
 					.arg(retTest.size())
@@ -179,11 +197,11 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 	case ctTestParam:
 		if (params.size() == 1)
 		{
-			QByteArray inTest = QByteArray::fromHex(params[0].toAscii());
+            QByteArray inTest = QByteArray::fromHex(params[0].toLatin1());
 			if (inTest.size() == 16)
 			{
 				QByteArray outTest;
-				if (fmterm.cmdTestParam(inTest, outTest))
+                if (mydevproto.cmdTestParam(inTest, outTest))
 				{
 					qout << QString("testparam [%1]{%2}: [%3]{%4} == \"%5\"[%6]{%7}\n")
 						.arg(inTest.size())
@@ -201,7 +219,7 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 		}
 		break;
 
-	case ctSwGet:
+    /*case ctSwGet:
 		if (params.isEmpty())
 		{
 			bool isSw;
@@ -213,9 +231,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctLedsOff:
+    /*case ctLedsOff:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdLedsOff())
@@ -226,9 +244,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctLedsRed:
+    /*case ctLedsRed:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdLedsRed())
@@ -239,9 +257,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctLedsGreen:
+    /*case ctLedsGreen:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdLedsGreen())
@@ -252,9 +270,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctGetDebugBuf:
+    /*case ctGetDebugBuf:
 		if (params.size() == 1)
 		{
 			unsigned char bufNum = static_cast<unsigned char>(params[0].toUInt());
@@ -273,9 +291,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctSetDebugBuf:
+    /*case ctSetDebugBuf:
 		if (params.size() == 2)
 		{
 			unsigned char bufNum = static_cast<unsigned char>(params[0].toUInt());
@@ -294,9 +312,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmSendData:
+    /*case ctFmSendData:
 		if (params.size() == 1)
 		{
 			QByteArray inData = QByteArray::fromHex(params[0].toAscii());
@@ -313,9 +331,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmRecvData:
+    /*case ctFmRecvData:
 		if (params.size() == 1)
 		{
 			unsigned char dataSize = static_cast<unsigned char>(params[0].toUInt());
@@ -334,9 +352,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmPowerUpAnalog:
+    /*case ctFmPowerUpAnalog:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdFmPowerUpAnalog())
@@ -347,9 +365,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctFmPowerUpDigital:
+    /*case ctFmPowerUpDigital:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdFmPowerUpDigital())
@@ -360,9 +378,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctFmPowerUpDigitalAnalog:
+    /*case ctFmPowerUpDigitalAnalog:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdFmPowerUpDigitalAnalog())
@@ -373,9 +391,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctFmPowerDown:
+    /*case ctFmPowerDown:
 		if (params.isEmpty())
 		{
 			if (fmterm.cmdFmPowerDown())
@@ -386,9 +404,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctFmSetProperty:
+    /*case ctFmSetProperty:
 		if (params.size() == 2)
 		{
 			QByteArray paddr = QByteArray::fromHex(params[0].toAscii());
@@ -418,9 +436,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmGetProperty:
+    /*case ctFmGetProperty:
 		if (params.size() == 1)
 		{
 			QByteArray paddr = QByteArray::fromHex(params[0].toAscii());
@@ -444,9 +462,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmGetRev:
+    /*case ctFmGetRev:
 		if (params.isEmpty())
 		{
 			QByteArray partNumber;
@@ -477,9 +495,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctFmGetIntStatus:
+    /*case ctFmGetIntStatus:
 		if (params.isEmpty())
 		{
 			unsigned char status;
@@ -493,9 +511,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 			else
 				return ceRun;
 		}
-		break;
+        break;*/
 
-	case ctFmTuneFreq:
+    /*case ctFmTuneFreq:
 		if (params.size() == 2)
 		{
 			QByteArray pfreq = QByteArray::fromHex(params[0].toAscii());
@@ -525,9 +543,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmSeekStart:
+    /*case ctFmSeekStart:
 		if (params.size() == 2)
 		{
 			bool valid = true;
@@ -561,9 +579,9 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
-	case ctFmTuneStatus:
+    /*case ctFmTuneStatus:
 		if (params.size() == 2)
 		{
 			bool valid = true;
@@ -622,7 +640,7 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 					return ceRun;
 			}
 		}
-		break;
+        break;*/
 
 	default:
 		break;
@@ -633,13 +651,13 @@ CmdError DebugConsole::runCmd(FmUsbTerminal &fmterm, CmdType cmdType, const QStr
 
 int DebugConsole::exec()
 {
-	FmUsbHid fmUsbHid;
+    MyDevice mydev;
 
-	if (!fmUsbOpen(fmUsbHid))
+    if (!devUsbOpen(mydev))
 		return 1;
 
 
-	FmUsbTerminal fmterm(fmUsbHid);
+    MyDeviceProto mydevproto(mydev);
 
 	printHelp();
 	bool go = true;
@@ -661,7 +679,7 @@ int DebugConsole::exec()
 		}
 		else
 		{
-			CmdError ce = runCmd(fmterm, ct, params);
+            CmdError ce = runCmd(mydevproto, ct, params);
 			if (ce == ceParams)
 			{
 				qout << "ERROR: Incorrect parameters" << endl;
@@ -674,8 +692,7 @@ int DebugConsole::exec()
 	}
 
 
-	fmUsbClose(fmUsbHid);
+    devUsbClose(mydev);
 
 	return 0;
 }
-

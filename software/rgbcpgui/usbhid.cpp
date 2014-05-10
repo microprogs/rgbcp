@@ -1,4 +1,5 @@
 #include "usbhid.h"
+#include <unistd.h>
 
 
 UsbHid::UsbHid(QObject *parent) :
@@ -33,7 +34,7 @@ UsbHidInfoList UsbHid::enumerateVidPid(unsigned short vendorId, unsigned short p
 		hidInfo.manufacturerString = QString::fromWCharArray(cur_dev->manufacturer_string);
 		hidInfo.productString = QString::fromWCharArray(cur_dev->product_string);
 		hidInfo.serialNumberString = QString::fromWCharArray(cur_dev->serial_number);
-		hidInfo.devicePath = QString::fromAscii(cur_dev->path);
+        hidInfo.devicePath = QString::fromLatin1(cur_dev->path);
 		res.append(hidInfo);
 
 		cur_dev = cur_dev->next;
@@ -50,7 +51,7 @@ bool UsbHid::open(QString devicePath)
 	bool res = false;
 	hid_device *h;
 
-	if ((h = hid_open_path(devicePath.toAscii().data())) != 0)
+    if ((h = hid_open_path(devicePath.toLatin1().data())) != 0)
 	{
 		hidDevice = h;
 		res = true;
@@ -168,63 +169,4 @@ int UsbHid::recvRawInReport(QByteArray &inData)
 		} while (!res);
 	}
 	return res;
-}
-
-/** @brief Send a Feature report to the device.
-
-	Feature reports are sent over the Control endpoint as a
-	Set_Report transfer.  The first byte of @p data[] must
-	contain the Report ID. For devices which only support a
-	single report, this must be set to 0x0. The remaining bytes
-	contain the report data. Since the Report ID is mandatory,
-	calls to hid_send_feature_report() will always contain one
-	more byte than the report contains. For example, if a hid
-	report is 16 bytes long, 17 bytes must be passed to
-	hid_send_feature_report(): the Report ID (or 0x0, for
-	devices which do not use numbered reports), followed by the
-	report data (16 bytes). In this example, the length passed
-	in would be 17.
-
-	@ingroup API
-	@param device A device handle returned from hid_open().
-	@param data The data to send, including the report number as
-		the first byte.
-	@param length The length in bytes of the data to send, including
-		the report number.
-
-	@returns
-		This function returns the actual number of bytes written and
-		-1 on error.
-*/
-int UsbHid::sendRawFeatureReport(const QByteArray &outData)
-{
-	if (hidDevice != 0)
-		return hid_send_feature_report(hidDevice, (const unsigned char*)outData.data(), outData.size());
-	return -1;
-}
-
-/** @brief Get a feature report from a HID device.
-
-	Make sure to set the first byte of @p data[] to the Report
-	ID of the report to be read.  Make sure to allow space for
-	this extra byte in @p data[].
-
-	@ingroup API
-	@param device A device handle returned from hid_open().
-	@param data A buffer to put the read data into, including
-		the Report ID. Set the first byte of @p data[] to the
-		Report ID of the report to be read.
-	@param length The number of bytes to read, including an
-		extra byte for the report ID. The buffer can be longer
-		than the actual report.
-
-	@returns
-		This function returns the number of bytes read and
-		-1 on error.
-*/
-int UsbHid::recvRawFeatureReport(QByteArray &inData)
-{
-	if (hidDevice != 0)
-		return hid_get_feature_report(hidDevice, (unsigned char*)inData.data(), inData.size());
-	return -1;
 }

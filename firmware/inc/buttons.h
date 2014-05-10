@@ -27,5 +27,28 @@ uint32_t btn_4_is_set(void);
 uint32_t btn_5_is_set(void);
 
 
+
+///////////////////////// FSM ////////////////////////////
+
+typedef uint32_t (*btn_is_set_t)(void);
+typedef void (*btn_action_t)(void);
+
+typedef struct _BTN_CONTEXT
+{
+	int btnState;
+	int btnCnt;
+	btn_is_set_t btn_is_set;
+	btn_action_t btn_action;
+	int noise_time_1;
+	int noise_time_2;
+} BTN_CONTEXT;
+
+
+
+void btn_fsm_init(BTN_CONTEXT *ctx, btn_is_set_t ptrBtnIsSetFunc, btn_action_t ptrBtnAction, int noise_time_1, int noise_time_2);
+void btn_fsm_step(BTN_CONTEXT *ctx);
+
+
+
 #endif
 

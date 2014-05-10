@@ -42,7 +42,7 @@ LOGDASM=firmware.log.dasm
 all: compile
 
 .PHONY: compile
-compile:
+compile: clean
 	$(CC) $(CFLAGS) $(LDFLAGS) $(DSRC)/*.c $(DLIB)/*.c
 	cd $(DBIN) && $(SIZE) -A -x $(OUTELF) | tee $(LOGSZ)
 	cd $(DBIN) && $(STRINGS) -t x $(OUTELF) | tee $(LOGSTR)
@@ -50,10 +50,11 @@ compile:
 	cd $(DBIN) && $(READELF) -S $(OUTELF) | tee $(LOGNM)
 	cd $(DBIN) && $(OBJDUMP) -d $(OUTELF) | tee $(LOGDASM)
 	cd $(DBIN) && $(OBJCOPY) --strip-unneeded -O binary $(OUTELF) $(OUTBIN)
+	ls -l $(DBIN)/$(OUTBIN)
 	$(FWEXT) $(DBIN)/$(OUTBIN)
 	$(FWSUM) $(DBIN)/$(OUTBIN)
 	$(FWCHECK) $(DBIN)/$(OUTBIN)
-
+	echo "########## BUILD COMPLETE ##########"
 
 #	$(AS) --version
 #	$(LD) --version
@@ -63,4 +64,4 @@ compile:
 .PHONY: clean
 clean:
 	cd $(DBIN) && rm -f $(OUTELF) $(OUTBIN) $(LOGSZ) $(LOGSTR) $(LOGRDELF) $(LOGNM) $(LOGDASM) 2>/dev/null
-
+	echo "########## CLEAN COMPLETE ##########"

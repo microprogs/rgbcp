@@ -2,10 +2,19 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "widgetleds.h"
+#include <QVBoxLayout>
+#include <QPushButton>
+#include "ledframe.h"
+#include "widgettimeline.h"
+#include "modelmovie.h"
 
-namespace Ui {
-class MainWindow;
+
+namespace Ui
+{
+    class MainWindow;
 }
+
 
 class MainWindow : public QMainWindow
 {
@@ -15,8 +24,39 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void onBtnLoadFromFile();
+    void onBtnSaveToFile();
+    void onBtnNewMovie();
+    void onBtnPlayStopMovie();
+
+    void onBtnFrameClear();
+    void onBtnFrameInsertBefore();
+    void onBtnFrameInsertAfter();
+    void onBtnFrameDelete();
+
+    void onTimeLineFrameSelected(int index);
+
+    void onLedFrameChanged();
+
+    void onTimerEvent();
+
+protected:
+    void setPlayMode();
+    void setEditMode();
+
+    void selectFrame(int index);
+
+    void selectNextFrame();
+    int getCurrentDelay() const;
+    void goTimer();
+
 private:
     Ui::MainWindow *ui;
+    WidgetLeds *widgetLeds;
+    WidgetTimeLine *widgetTimeLine;
+    ModelMovie modelMovie;
+    bool isPlayMode;
 };
 
 #endif // MAINWINDOW_H

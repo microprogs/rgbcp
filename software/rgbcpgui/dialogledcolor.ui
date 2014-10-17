@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogLedColor</class>
+ <widget class="QDialog" name="DialogLedColor">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>554</width>
+    <height>448</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Select LED Color</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetDefaultConstraint</enum>
+   </property>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBoxSubColor">
+         <property name="title">
+          <string>Subpixel color</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelHeaderRed">
+              <property name="text">
+               <string>Red:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelHeaderBlue">
+              <property name="text">
+               <string>Blue:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelHeaderGreen">
+              <property name="text">
+               <string>Green:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="comboBoxRed"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="comboBoxGreen"/>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="comboBoxBlue"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBoxFullColor">
+         <property name="title">
+          <string>Full LED color</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelFullLedColor">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>100</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogLedColor</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>280</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogLedColor</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>280</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBoxRed</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>DialogLedColor</receiver>
+   <slot>comboBoxRedCurrentIndexChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBoxGreen</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>DialogLedColor</receiver>
+   <slot>comboBoxGreenCurrentIndexChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBoxBlue</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>DialogLedColor</receiver>
+   <slot>comboBoxBlueCurrentIndexChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>comboBoxRedCurrentIndexChanged(int)</slot>
+  <slot>comboBoxGreenCurrentIndexChanged(int)</slot>
+  <slot>comboBoxBlueCurrentIndexChanged(int)</slot>
+ </slots>
+</ui>

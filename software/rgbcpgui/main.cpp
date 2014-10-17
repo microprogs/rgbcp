@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "debugconsole.h"
+#include "testalg.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +30,12 @@ int main(int argc, char *argv[])
     }
 
     // No Params: GUI
+
+    //////////////////////////////////////
+    TestAlg testAlg;
+    testAlg.testAll();
+    //////////////////////////////////////
+
     MainWindow w;
     w.show();
     return app.exec();

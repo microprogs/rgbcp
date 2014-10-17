@@ -1,311 +1,280 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QListWidget>
+#include <QTableWidget>
+#include <QScrollBar>
+#include <QComboBox>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QTimer>
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    modelMovie(this),
+    isPlayMode(false)
 {
     ui->setupUi(this);
+
+    widgetLeds = new WidgetLeds(this);
+    widgetTimeLine = new WidgetTimeLine(this);
+
+    connect(widgetTimeLine, SIGNAL(timeLineFrameSelected(int)), this, SLOT(onTimeLineFrameSelected(int)));
+    connect(widgetLeds, SIGNAL(ledFrameChanged()), this, SLOT(onLedFrameChanged()));
+
+    ui->verticalLayoutWidgetLed->addWidget(widgetLeds);
+    ui->verticalLayoutWidgetLed->addWidget(widgetTimeLine);
+
+    setWindowTitle(tr("RGBCP GUI 1.0 TESTER"));
+
+    onBtnNewMovie();
 }
 
 MainWindow::~MainWindow()
 {
+    delete widgetTimeLine;
+    delete widgetLeds;
     delete ui;
 }
 
-/*
-#include "wndmain.h"
-#include "ui_wndmain.h"
-#include <QMessageBox>
-
-wndMain::wndMain(FmUsbTerminal &fmterm) :
-    QMainWindow(0),
-    ui(new Ui::wndMain),
-    fmTerm(fmterm)
+void MainWindow::onBtnLoadFromFile()
 {
-    ui->setupUi(this);
-    isCancel = false;
-    setUIValidChannel(false);
-    setUISNR(0);
-    setUICurrentFreq(10790);
-    setUICurrentFreq(8751);
-    setUICurrentFreq(8750);
-    setUIBtnFindAllToCancel(false);
-}
-
-wndMain::~wndMain()
-{
-    delete ui;
-}
-
-void wndMain::setUIValidChannel(bool isValid)
-{
-    if (isValid)
+    if (!isPlayMode)
     {
-        ui->lblIsValidChannelIcon->setPixmap(QPixmap(":/iconValidChannel"));
-        ui->lblIsValidChannelText->setText(trUtf8("Устойчивый приём"));
-    }
-    else
-    {
-        ui->lblIsValidChannelIcon->setPixmap(QPixmap(":/iconNotValidChannel"));
-        ui->lblIsValidChannelText->setText(trUtf8("Неустойчивый приём"));
-    }
-}
-
-void wndMain::blockUIControls(bool isBlock)
-{
-    if (isBlock)
-    {
-        ui->btnFindAllRadioStations->setEnabled(false);
-        ui->btnSelectRadioStation->setEnabled(false);
-        ui->btnAutoSearchUp->setEnabled(false);
-        ui->btnAutoSearchDown->setEnabled(false);
-        ui->lstAllRadioStations->setEnabled(false);
-        ui->spnCurrentFreq->setEnabled(false);
-    }
-    else
-    {
-        ui->btnFindAllRadioStations->setEnabled(true);
-        ui->btnSelectRadioStation->setEnabled(true);
-        ui->btnAutoSearchUp->setEnabled(true);
-        ui->btnAutoSearchDown->setEnabled(true);
-        ui->lstAllRadioStations->setEnabled(true);
-        ui->spnCurrentFreq->setEnabled(true);
-    }
-}
-
-void wndMain::setUISNR(unsigned char snr)
-{
-    ui->edtSNR->setText(QString("%1 dB").arg((ushort)snr));
-}
-
-void wndMain::setUIRadioStationsList(const QVector<unsigned short> &allFreq)
-{
-    ui->lstAllRadioStations->clear();
-
-    foreach (unsigned short freq, allFreq)
-    {
-        ui->lstAllRadioStations->addItem(QString("%1,%2 MHz").arg(freq / 100).arg(freq % 100, 2, 10, QChar('0')));
-        ui->lstAllRadioStations->item(ui->lstAllRadioStations->count()-1)->setData(Qt::UserRole, (unsigned int)freq);
-    }
-}
-
-bool wndMain::getUIRadioStationsListItem(unsigned short &freq)
-{
-    freq = 0;
-
-    if (ui->lstAllRadioStations->currentRow() >= 0)
-    {
-        freq = (unsigned short)(ui->lstAllRadioStations->currentItem()->data(Qt::UserRole).toUInt());
-        return true;
-    }
-
-    return false;
-}
-
-void wndMain::setUICurrentFreq(unsigned short freq)
-{
-    ui->spnCurrentFreq->setValue((double)freq / 100.00);
-}
-
-unsigned short wndMain::getUICurrentFreq()
-{
-    return (unsigned short)(ui->spnCurrentFreq->value() * 100 + 0.5);
-}
-
-void wndMain::showInfo(const QString &infoText)
-{
-    QMessageBox::information(this, "Information", infoText);
-}
-
-void wndMain::showError(const QString &errorText)
-{
-    QMessageBox::critical(this, "Error", errorText);
-}
-
-void wndMain::showWarning(const QString &warningText)
-{
-    QMessageBox::warning(this, "Warning", warningText);
-}
-
-void wndMain::setUIProgress(unsigned short freq)
-{
-    ui->pbrRadio->setValue(freq);
-    if (freq <= 8750)
-        ui->pbrRadio->setEnabled(false);
-    else
-        ui->pbrRadio->setEnabled(true);
-}
-
-void wndMain::setUIBtnFindAllToCancel(bool isCancel)
-{
-    if (isCancel)
-    {
-        ui->btnFindAllRadioStations->setVisible(false);
-        ui->btnCancelFindAll->setVisible(true);
-    }
-    else
-    {
-        ui->btnCancelFindAll->setVisible(false);
-        ui->btnFindAllRadioStations->setVisible(true);
-    }
-
-    this->isCancel = false;
-}
-
-void wndMain::autoSearch(bool isUp)
-{
-    unsigned short old_freq = getUICurrentFreq();
-
-    bool isBandLimit = false;
-    bool isValidChannel = false;
-    unsigned short freq = 0;
-    unsigned char snr = 0;
-
-    if (fmTerm.autoSearchNext(isUp, isBandLimit, isValidChannel, freq, snr))
-    {
-        if (isValidChannel)
+        QString openFileName = QFileDialog::getOpenFileName(this, "Open Movie File", ".", "Binary File (*.bin)");
+        if (!openFileName.isNull())
         {
-            setUIValidChannel(isValidChannel);
-            setUISNR(snr);
-            setUICurrentFreq(freq);
-        }
-        else
-        {
-            setUICurrentFreq(freq);
-            setUICurrentFreq(old_freq);
-        }
-    }
-    else
-    {
-        showError(trUtf8("Ошибка связи с FM-USB. \n"
-                         "Возможно приёмник выдернут из USB-порта."));
-        close();
-        return;
-    }
-}
-
-void wndMain::AutoSearchUp()
-{
-    blockUIControls(true);
-    autoSearch(true);
-    blockUIControls(false);
-}
-
-void wndMain::AutoSearchDown()
-{
-    blockUIControls(true);
-    autoSearch(false);
-    blockUIControls(false);
-}
-
-void wndMain::FindAllRadioStations()
-{
-    blockUIControls(true);
-    setUIBtnFindAllToCancel(true);
-
-    QVector<unsigned short> allf;
-
-    unsigned short old_freq = getUICurrentFreq();
-
-    setUICurrentFreq(8750);
-    setUIProgress(8750);
-
-    bool isBandLimit = false;
-    bool isValidChannel = false;
-    unsigned short freq = 0;
-    unsigned char snr = 0;
-
-    if (fmTerm.autoSearchNext(false, isBandLimit, isValidChannel, freq, snr))
-    {
-        if (isValidChannel)
-        {
-            allf.append(freq);
-        }
-    }
-    else
-    {
-        showError(trUtf8("Ошибка связи с FM-USB. \n"
-                         "Возможно приёмник выдернут из USB-порта."));
-        close();
-        return;
-    }
-    setUIRadioStationsList(allf);
-    setUIProgress(freq);
-    QApplication::processEvents();
-
-    do
-    {
-        if (isCancel)
-        {
-            break;
-        }
-
-        if (fmTerm.autoSearchNext(true, isBandLimit, isValidChannel, freq, snr))
-        {
-            if (isValidChannel)
+            if (QFile::exists(openFileName))
             {
-                allf.append(freq);
+                if (modelMovie.LoadFromFile(openFileName))
+                {
+                    if (modelMovie.frameCount() < 1)
+                        modelMovie.insertFrameAfter(0);
+
+                    widgetTimeLine->setFrameCount(modelMovie.frameCount());
+                    selectFrame(0);
+                    ui->statusBar->showMessage(QString("Movie Loaded From File: %1").arg(openFileName));
+                }
+                else
+                {
+                    QMessageBox::critical(this, "Load Movie File", "Can't load movie from file!");
+                }
+            }
+            else
+            {
+                QMessageBox::critical(this, "Open Movie File", "This file don't exist!");
             }
         }
+    }
+}
+
+void MainWindow::onBtnSaveToFile()
+{
+    if (!isPlayMode)
+    {
+        QString saveFileName = QFileDialog::getSaveFileName(this, "Save Movie File", ".", "Binary File (*.bin)");
+        if (saveFileName.size() > 0)
+        {
+            if (modelMovie.SaveToFile(saveFileName))
+            {
+                ui->statusBar->showMessage(QString("Movie Saved To File: %1").arg(saveFileName));
+            }
+            else
+            {
+                QMessageBox::critical(this, "Save Movie File", "Can't save movie to file!");
+            }
+        }
+    }
+}
+
+void MainWindow::onBtnNewMovie()
+{
+    if (!isPlayMode)
+    {
+        modelMovie.clearAll();
+        modelMovie.insertFrameAfter(0);
+
+        widgetTimeLine->setFrameCount(1);
+        selectFrame(0);
+
+        ui->statusBar->showMessage("New Movie");
+    }
+}
+
+void MainWindow::onBtnPlayStopMovie()
+{
+    if (!isPlayMode)
+        setPlayMode();
+    else
+        setEditMode();
+}
+
+void MainWindow::onBtnFrameClear()
+{
+    if (!isPlayMode)
+    {
+        const int frameIndex = widgetTimeLine->getFrameIndex();
+        modelMovie.clearFrame(frameIndex);
+        selectFrame(frameIndex);
+    }
+}
+
+void MainWindow::onBtnFrameInsertBefore()
+{
+    if (!isPlayMode)
+    {
+        const int frameIndex = widgetTimeLine->getFrameIndex();
+        const int frameCount = widgetTimeLine->getFrameCount();
+        modelMovie.insertFrameBefore(frameIndex);
+        widgetTimeLine->setFrameCount(frameCount + 1);
+        selectFrame(frameIndex - 1);
+    }
+}
+
+void MainWindow::onBtnFrameInsertAfter()
+{
+    if (!isPlayMode)
+    {
+        const int frameIndex = widgetTimeLine->getFrameIndex();
+        const int frameCount = widgetTimeLine->getFrameCount();
+        modelMovie.insertFrameAfter(frameIndex);
+        widgetTimeLine->setFrameCount(frameCount + 1);
+        selectFrame(frameIndex + 1);
+    }
+}
+
+void MainWindow::onBtnFrameDelete()
+{
+    if (!isPlayMode)
+    {
+        const int frameIndex = widgetTimeLine->getFrameIndex();
+        const int frameCount = widgetTimeLine->getFrameCount();
+
+        if (frameCount <= 1)
+        {
+            onBtnFrameClear();
+        }
         else
         {
-            showError(trUtf8("Ошибка связи с FM-USB. \n"
-                             "Возможно приёмник выдернут из USB-порта."));
-            close();
-            return;
+            modelMovie.deleteFrame(frameIndex);
+            widgetTimeLine->setFrameCount(frameCount - 1);
+            selectFrame(frameIndex - 1);
         }
-        setUIRadioStationsList(allf);
-        setUIProgress(freq);
-        QApplication::processEvents();
-    } while (!isBandLimit);
-
-    setUICurrentFreq(old_freq + 1);
-    setUICurrentFreq(old_freq);
-
-    setUIProgress(8750);
-
-    setUIBtnFindAllToCancel(false);
-    blockUIControls(false);
+    }
 }
 
-void wndMain::SelectRadioStation()
+void MainWindow::setPlayMode()
 {
-    unsigned short freq;
-    if (getUIRadioStationsListItem(freq))
+    if (!isPlayMode)
     {
-        setUICurrentFreq(freq + 1);
-        setUICurrentFreq(freq);
+        isPlayMode = true;
+        ui->btnPlayStopMovie->setText("<<< STOP MOVIE >>>");
+
+        widgetTimeLine->setReadOnlyMode(true);
+        widgetLeds->setReadOnlyMode(true);
+
+        ui->btnNewMovie->setEnabled(false);
+        ui->btnSaveToFile->setEnabled(false);
+        ui->btnLoadFromFile->setEnabled(false);
+        ui->btnFrameClear->setEnabled(false);
+        ui->btnFrameDelete->setEnabled(false);
+        ui->btnFrameInsertBefore->setEnabled(false);
+        ui->btnFrameInsertAfter->setEnabled(false);
+
+        ui->statusBar->showMessage("Play Mode... Press Stop To Return To Edit Mode...");
+
+        goTimer();
     }
+}
+
+void MainWindow::setEditMode()
+{
+    if (isPlayMode)
+    {
+        isPlayMode = false;
+        ui->btnPlayStopMovie->setText("Play Movie");
+
+        widgetTimeLine->setReadOnlyMode(false);
+        widgetLeds->setReadOnlyMode(false);
+
+        ui->btnNewMovie->setEnabled(true);
+        ui->btnSaveToFile->setEnabled(true);
+        ui->btnLoadFromFile->setEnabled(true);
+        ui->btnFrameClear->setEnabled(true);
+        ui->btnFrameDelete->setEnabled(true);
+        ui->btnFrameInsertBefore->setEnabled(true);
+        ui->btnFrameInsertAfter->setEnabled(true);
+
+        ui->statusBar->showMessage("Edit Mode");
+    }
+}
+
+void MainWindow::onTimeLineFrameSelected(int index)
+{
+    if (!isPlayMode)
+    {
+        selectFrame(index);
+    }
+}
+
+void MainWindow::selectFrame(int index)
+{
+    widgetTimeLine->setFrameIndex(index);
+    LedFrame ledFrame = modelMovie.getFrame(index);
+    widgetLeds->setLedFrame(ledFrame);
+}
+
+void MainWindow::selectNextFrame()
+{
+    int frameIndex = widgetTimeLine->getFrameIndex();
+    const int frameCount = widgetTimeLine->getFrameCount();
+
+    if (frameIndex >= (frameCount-1))
+        frameIndex = 0;
     else
-    {
-        showWarning(trUtf8("Не выбрана радиостанция"));
-    }
+        ++frameIndex;
+
+    selectFrame(frameIndex);
 }
 
-void wndMain::ChangeFreq(double value)
+int MainWindow::getCurrentDelay() const
 {
-    unsigned short freq = (unsigned short)(value * 100 + 0.5);
-    bool isBandLimit = false;
-    bool isValidChannel = false;
-    unsigned char snr = 0;
+   const double SCALE_FACTOR = 10.0;
 
-    if (fmTerm.changeFreq(freq, isBandLimit, isValidChannel, snr))
-    {
-        setUIValidChannel(isValidChannel);
-        setUISNR(snr);
-    }
-    else
-    {
-        showError(trUtf8("Ошибка связи с FM-USB. \n"
-                         "Возможно приёмник выдернут из USB-порта."));
-        close();
-        return;
-    }
+   int res = 0;
+
+   if (widgetTimeLine->getFrameCount() > 0)
+   {
+       const int frameIndex = widgetTimeLine->getFrameIndex();
+       LedFrame ledFrame = modelMovie.getFrame(frameIndex);
+       res = static_cast<uint>(ledFrame.getDelay());
+       res = int(((double)res * SCALE_FACTOR) + 0.5);
+   }
+
+   return res;
 }
 
-void wndMain::CancelFindAll()
+void MainWindow::goTimer()
 {
-    isCancel = true;
+    const int delay = getCurrentDelay();
+    QTimer::singleShot(delay, this, SLOT(onTimerEvent()));
 }
-*/
+
+void MainWindow::onLedFrameChanged()
+{
+    const int frameIndex = widgetTimeLine->getFrameIndex();
+    LedFrame ledFrame = widgetLeds->getLedFrame();
+    modelMovie.setFrame(frameIndex, ledFrame);
+    selectFrame(frameIndex);
+}
+
+void MainWindow::onTimerEvent()
+{
+    if (isPlayMode)
+    {
+        selectNextFrame();
+        goTimer();
+    }
+}

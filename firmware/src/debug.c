@@ -2,10 +2,10 @@
 #include <leds.h>
 #include <delay.h>
 
-uint8_t debug_buf0[DEBUG_BUF_SIZE];
+/*uint8_t debug_buf0[DEBUG_BUF_SIZE];
 uint8_t debug_buf1[DEBUG_BUF_SIZE];
 uint8_t debug_buf2[DEBUG_BUF_SIZE];
-uint8_t debug_buf3[DEBUG_BUF_SIZE];
+uint8_t debug_buf3[DEBUG_BUF_SIZE];*/
 
 void fatal_error()
 {
@@ -20,4 +20,3 @@ void fatal_error()
 //		delay_ticks(2000000);
 	}
 }
-

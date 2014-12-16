@@ -65,3 +65,7 @@ compile: clean
 clean:
 	cd $(DBIN) && rm -f $(OUTELF) $(OUTBIN) $(LOGSZ) $(LOGSTR) $(LOGRDELF) $(LOGNM) $(LOGDASM) 2>/dev/null
 	echo "########## CLEAN COMPLETE ##########"
+
+.PHONY: http
+http:
+	cd $(DBIN) && python3 -m http.server 8080

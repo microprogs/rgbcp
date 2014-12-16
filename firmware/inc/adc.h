@@ -30,7 +30,13 @@
 extern void ADC_IRQHandler( void );
 extern void ADCInit( uint32_t ADC_Clk );
 extern uint32_t ADCRead( uint8_t channelNum );
+
+
+#if BURST_MODE
 extern void ADCBurstRead( void );
+#endif
+
+
 #endif /* end __ADC_H */
 /*****************************************************************************
 **                            End Of File

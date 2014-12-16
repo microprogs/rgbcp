@@ -100,6 +100,7 @@ void timer32_0_irq_handler(void)
 
 void timer32_1_irq_handler(void)
 {
+    //RESERVED FOR USB
 }
 
 void ssp_irq_handler(void)
@@ -121,7 +122,9 @@ void usb_fiq_handler(void)
 
 void adc_irq_handler(void)
 {
-} 
+    //extern void ADC_IRQHandler(void);
+    //ADC_IRQHandler();
+}
 
 void wdt_irq_handler(void)
 {
@@ -150,4 +153,3 @@ void pio_int1_irq_handler(void)
 void pio_int0_irq_handler(void)
 {
 }
-

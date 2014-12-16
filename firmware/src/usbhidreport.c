@@ -36,7 +36,7 @@ Reply:
 // ret[9]
 void cmdTest(uint8_t* params, uint8_t* ret)
 {
-	ret[0] = '[';
+    /*ret[0] = '[';
 	ret[1] = 'T';
 	ret[2] = 'E';
 	ret[3] = 'S';
@@ -44,14 +44,14 @@ void cmdTest(uint8_t* params, uint8_t* ret)
 	ret[5] = ' ';
 	ret[6] = 'O';
 	ret[7] = 'K';
-	ret[8] = ']';
+    ret[8] = ']';*/
 }
 
 // params[16]
 // ret[27]
 void cmdTestParam(uint8_t* params, uint8_t* ret)
 {
-	ret[0] = 'T';
+    /*ret[0] = 'T';
 	ret[1] = 'E';
 	ret[2] = 'S';
 	ret[3] = 'T';
@@ -62,7 +62,7 @@ void cmdTestParam(uint8_t* params, uint8_t* ret)
 	ret[8] = 'A';
 	ret[9] = 'M';
 	ret[10] = ':';
-	memcpy(ret + 11, params, 16);
+    memcpy(ret + 11, params, 16);*/
 }
 
 // params[0]
@@ -77,8 +77,8 @@ void cmdTestParam(uint8_t* params, uint8_t* ret)
 // ret[4]
 void cmdReadAdc(uint8_t* params, uint8_t* ret)
 {
-	uint32_t bat_val = ADCRead(0);
-	memcpy(ret, (unsigned char*)&bat_val, 4);
+    //uint32_t bat_val = ADCRead(0);
+    //memcpy(ret, (unsigned char*)&bat_val, 4);
 }
 
 // params[0]
@@ -112,7 +112,7 @@ void cmdLedsGreen(uint8_t* params, uint8_t* ret)
 // ret[32]
 void cmdGetDebugBuf(uint8_t* params, uint8_t* ret)
 {
-	switch (params[0])
+    /*switch (params[0])
 	{
 	case 1:
 		memcpy(ret, debug_buf1, DEBUG_BUF_SIZE);
@@ -130,14 +130,14 @@ void cmdGetDebugBuf(uint8_t* params, uint8_t* ret)
 	default:
 		memcpy(ret, debug_buf0, DEBUG_BUF_SIZE);
 		break;
-	}
+    }*/
 }
 
 // params[33]
 // ret[1]
 void cmdSetDebugBuf(uint8_t* params, uint8_t* ret)
 {
-	switch (params[0])
+    /*switch (params[0])
 	{
 	case 1:
 		memcpy(debug_buf1, params+1, DEBUG_BUF_SIZE);
@@ -157,7 +157,7 @@ void cmdSetDebugBuf(uint8_t* params, uint8_t* ret)
 		break;
 	}
 
-	ret[0] = '\xDD';
+    ret[0] = '\xDD';*/
 }
 
 // params[9]
@@ -183,7 +183,7 @@ void cmdFmRecvData(uint8_t* params, uint8_t* ret)
 
 
 void processCommand(uint32_t cmdCode, uint8_t* params, uint8_t* ret)
-{
+{/*
 	switch (cmdCode)
 	{
 	case CMD_TEST:
@@ -221,13 +221,13 @@ void processCommand(uint32_t cmdCode, uint8_t* params, uint8_t* ret)
 	case CMD_SET_DEBUG_BUF:
 		cmdSetDebugBuf(params, ret);
 		break;
-	}
+    }*/
 }
 
 
 void processCommandDPC(uint32_t cmdCode, uint8_t* params, uint8_t* ret)
 {
-	switch (cmdCode)
+/*	switch (cmdCode)
 	{
 	case CMD_FM_SEND_DATA:
 		cmdFmSendData(params, ret);
@@ -236,18 +236,18 @@ void processCommandDPC(uint32_t cmdCode, uint8_t* params, uint8_t* ret)
 	case CMD_FM_RECV_DATA:
 		cmdFmRecvData(params, ret);
 		break;
-	}
+    }*/
 }
 
 
 
-static volatile uint8_t ret_buf[64];
-static volatile uint8_t dpc_req_buf[64];
-static volatile uint16_t dpc_is_run;
+//static volatile uint8_t ret_buf[64];
+//static volatile uint8_t dpc_req_buf[64];
+//static volatile uint16_t dpc_is_run;
 
 void DPCDispatch(void)
 {
-	if (dpc_is_run)
+/*	if (dpc_is_run)
 	{
 		memset((void*)ret_buf, 0, 64);
 		uint32_t *pcmdCode = ((uint32_t*)&dpc_req_buf[4]);	
@@ -258,17 +258,17 @@ void DPCDispatch(void)
 		processCommandDPC(cmdCode, params, ret);
 		no_operation();
 		dpc_is_run = 0;
-	}
+    }*/
 }
 
 
 void GetInReport (uint8_t src[], uint32_t length)
 {
 	// Block ALL
-	if (dpc_is_run)
+    /*if (dpc_is_run)
 		memset(src, 0, 64);
 	else
-		memcpy(src, (void*)ret_buf, sizeof(ret_buf));
+        memcpy(src, (void*)ret_buf, sizeof(ret_buf));*/
 	// UnBlock ALL
 }
 
@@ -283,7 +283,7 @@ Reply:
 | uint32_t reqNum | uint32_t cmdCode | result............. |
 */
 
-	memset((void*)ret_buf, 0, 64);
+    /*memset((void*)ret_buf, 0, 64);
 
 	uint32_t cmdCode = *((uint32_t*)&dst[4]);
 	uint8_t *params = (uint8_t*)&dst[8];
@@ -298,7 +298,7 @@ Reply:
 	{
 		memcpy((void*)ret_buf, dst, 8);
 		processCommand(cmdCode, params, ret);
-	}
+    }*/
 
 	// UnBlock ALL
 }

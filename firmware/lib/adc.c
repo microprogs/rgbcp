@@ -232,6 +232,7 @@ uint32_t ADCRead( uint8_t channelNum )
 ** Returned value:		None
 ** 
 *****************************************************************************/
+#if BURST_MODE
 void ADCBurstRead( void )
 {
   if ( LPC_ADC->CR & (0x7<<24) )
@@ -247,6 +248,7 @@ void ADCBurstRead( void )
   return;						/* the ADC reading is done inside the 
 								handler, return 0. */
 }
+#endif
 
 /*********************************************************************************
 **                            End Of File

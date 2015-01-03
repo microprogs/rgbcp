@@ -42,7 +42,7 @@ LOGDASM=firmware.log.dasm
 all: compile
 
 .PHONY: compile
-compile: clean
+compile: clean genmovies
 	$(CC) $(CFLAGS) $(LDFLAGS) $(DSRC)/*.c $(DLIB)/*.c
 	cd $(DBIN) && $(SIZE) -A -x $(OUTELF) | tee $(LOGSZ)
 	cd $(DBIN) && $(STRINGS) -t x $(OUTELF) | tee $(LOGSTR)
@@ -60,6 +60,11 @@ compile: clean
 #	$(LD) --version
 #	$(CPREPROC) --version
 #	$(STRIP) --version
+
+.PHONY: genmovies
+genmovies:
+	python genmovies.py
+	echo "########## GEN MOVIES COMPLETE ##########"
 
 .PHONY: clean
 clean:

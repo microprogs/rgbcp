@@ -15,10 +15,11 @@ void thread_leds_init()
 
 
     // LED FSM INIT
-    led_fsm_init(&led_bat_0_ctx, 25*6, led_bat_0_power_off, led_bat_0_power_on);
-    led_fsm_init(&led_bat_1_ctx, 25*6, led_bat_1_power_off, led_bat_1_power_on);
-    led_fsm_init(&led_bat_2_ctx, 25*6, led_bat_2_power_off, led_bat_2_power_on);
-    led_fsm_init(&led_bat_3_ctx, 25*6, led_bat_3_power_off, led_bat_3_power_on);
+#define LED_BAT_MULT    7
+    led_fsm_init(&led_bat_0_ctx, 25*LED_BAT_MULT, led_bat_0_power_off, led_bat_0_power_on);
+    led_fsm_init(&led_bat_1_ctx, 25*LED_BAT_MULT, led_bat_1_power_off, led_bat_1_power_on);
+    led_fsm_init(&led_bat_2_ctx, 25*LED_BAT_MULT, led_bat_2_power_off, led_bat_2_power_on);
+    led_fsm_init(&led_bat_3_ctx, 25*LED_BAT_MULT, led_bat_3_power_off, led_bat_3_power_on);
 
 
     led_fsm_set_bright(&led_bat_0_ctx, 0);  // 0..brightMax
@@ -32,9 +33,6 @@ void thread_leds_init()
 
 
     led_matrix_fsm_init(LED_BRIGHT_MAX, LED_GLOBAL_BRIGHT_MAX);
-
-
-
 }
 
 void thread_leds_tick()

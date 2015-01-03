@@ -66,3 +66,11 @@ src/thread_leds.c
 inc/thread_leds.h
 src/thread_movie.c
 inc/thread_movie.h
+genmovies.py
+inc/movies.h
+src/movies.c
+src/link.ld
+inc/mcubitstreamreader.h
+inc/mcuframedecompressor.h
+src/mcubitstreamreader.c
+src/mcuframedecompressor.c

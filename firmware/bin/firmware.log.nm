@@ -1,16 +1,16 @@
-There are 9 section headers, starting at offset 0x1020c:
+There are 9 section headers, starting at offset 0x10224:
 
 Section Headers:
   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] .text             PROGBITS        00000000 008000 003d30 00  AX  0   0  4
-  [ 2] .data             PROGBITS        10000000 010000 000180 00  WA  0   0  1
-  [ 3] .bss              NOBITS          10000180 010180 000194 00  WA  0   0  4
-  [ 4] .comment          PROGBITS        00000000 010180 000011 01  MS  0   0  1
-  [ 5] .ARM.attributes   ARM_ATTRIBUTES  00000000 010191 000033 00      0   0  1
-  [ 6] .shstrtab         STRTAB          00000000 0101c4 000045 00      0   0  1
-  [ 7] .symtab           SYMTAB          00000000 010374 006d10 10      8 1083  4
-  [ 8] .strtab           STRTAB          00000000 017084 004808 00      0   0  1
+  [ 1] .text             PROGBITS        00000000 008000 004c04 00  AX  0   0  4
+  [ 2] .data             PROGBITS        10000000 010000 000198 00  WA  0   0  4
+  [ 3] .bss              NOBITS          10000198 010198 000200 00  WA  0   0  4
+  [ 4] .comment          PROGBITS        00000000 010198 000011 01  MS  0   0  1
+  [ 5] .ARM.attributes   ARM_ATTRIBUTES  00000000 0101a9 000033 00      0   0  1
+  [ 6] .shstrtab         STRTAB          00000000 0101dc 000045 00      0   0  1
+  [ 7] .symtab           SYMTAB          00000000 01038c 007100 10      8 1128  4
+  [ 8] .strtab           STRTAB          00000000 01748c 004a52 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings)
   I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)

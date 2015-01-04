@@ -10,7 +10,7 @@ ELF Header:
   Version:                           0x1
   Entry point address:               0x689
   Start of program headers:          52 (bytes into file)
-  Start of section headers:          66084 (bytes into file)
+  Start of section headers:          66096 (bytes into file)
   Flags:                             0x5000202, has entry point, Version5 EABI, soft-float ABI
   Size of this header:               52 (bytes)
   Size of program headers:           32 (bytes)
@@ -22,14 +22,14 @@ ELF Header:
 Section Headers:
   [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
   [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] .text             PROGBITS        00000000 008000 004c04 00  AX  0   0  4
-  [ 2] .data             PROGBITS        10000000 010000 000198 00  WA  0   0  4
-  [ 3] .bss              NOBITS          10000198 010198 000200 00  WA  0   0  4
-  [ 4] .comment          PROGBITS        00000000 010198 000011 01  MS  0   0  1
-  [ 5] .ARM.attributes   ARM_ATTRIBUTES  00000000 0101a9 000033 00      0   0  1
-  [ 6] .shstrtab         STRTAB          00000000 0101dc 000045 00      0   0  1
-  [ 7] .symtab           SYMTAB          00000000 01038c 007100 10      8 1128  4
-  [ 8] .strtab           STRTAB          00000000 01748c 004a52 00      0   0  1
+  [ 1] .text             PROGBITS        00000000 008000 005148 00  AX  0   0  4
+  [ 2] .data             PROGBITS        10000000 010000 0001a4 00  WA  0   0  4
+  [ 3] .bss              NOBITS          100001a4 0101a4 000200 00  WA  0   0  4
+  [ 4] .comment          PROGBITS        00000000 0101a4 000011 01  MS  0   0  1
+  [ 5] .ARM.attributes   ARM_ATTRIBUTES  00000000 0101b5 000033 00      0   0  1
+  [ 6] .shstrtab         STRTAB          00000000 0101e8 000045 00      0   0  1
+  [ 7] .symtab           SYMTAB          00000000 010398 007130 10      8 1128  4
+  [ 8] .strtab           STRTAB          00000000 0174c8 004a91 00      0   0  1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings)
   I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
@@ -39,8 +39,8 @@ There are no section groups in this file.
 
 Program Headers:
   Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
-  LOAD           0x008000 0x00000000 0x00000000 0x04c04 0x04c04 R E 0x8000
-  LOAD           0x010000 0x10000000 0x00004c04 0x00198 0x00398 RW  0x8000
+  LOAD           0x008000 0x00000000 0x00000000 0x05148 0x05148 R E 0x8000
+  LOAD           0x010000 0x10000000 0x00005148 0x001a4 0x003a4 RW  0x8000
 
  Section to Segment mapping:
   Segment Sections...
@@ -53,12 +53,12 @@ There are no relocations in this file.
 
 There are no unwind sections in this file.
 
-Symbol table '.symtab' contains 1808 entries:
+Symbol table '.symtab' contains 1811 entries:
    Num:    Value  Size Type    Bind   Vis      Ndx Name
      0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
      1: 00000000     0 SECTION LOCAL  DEFAULT    1 
      2: 10000000     0 SECTION LOCAL  DEFAULT    2 
-     3: 10000198     0 SECTION LOCAL  DEFAULT    3 
+     3: 100001a4     0 SECTION LOCAL  DEFAULT    3 
      4: 00000000     0 SECTION LOCAL  DEFAULT    4 
      5: 00000000     0 SECTION LOCAL  DEFAULT    5 
      6: 00000000     0 FILE    LOCAL  DEFAULT  ABS vectors.c
@@ -95,11 +95,11 @@ Symbol table '.symtab' contains 1808 entries:
     37: 00000aac     0 NOTYPE  LOCAL  DEFAULT    1 $t
     38: 00000ac4     0 NOTYPE  LOCAL  DEFAULT    1 $d
     39: 00000ac8     0 NOTYPE  LOCAL  DEFAULT    1 $t
-    40: 10000190     0 NOTYPE  LOCAL  DEFAULT    2 $d
-    41: 10000190     4 OBJECT  LOCAL  DEFAULT    2 speed_mult
-    42: 10000198     0 NOTYPE  LOCAL  DEFAULT    3 $d
-    43: 10000198     4 OBJECT  LOCAL  DEFAULT    3 is_new_program
-    44: 1000019c     4 OBJECT  LOCAL  DEFAULT    3 program_index
+    40: 1000019c     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    41: 1000019c     4 OBJECT  LOCAL  DEFAULT    2 speed_mult
+    42: 100001a4     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    43: 100001a4     4 OBJECT  LOCAL  DEFAULT    3 is_new_program
+    44: 100001a8     4 OBJECT  LOCAL  DEFAULT    3 program_index
     45: 00000000     0 FILE    LOCAL  DEFAULT  ABS thread_buttons.c
     46: 00000b24     0 NOTYPE  LOCAL  DEFAULT    1 $t
     47: 00000b98     0 NOTYPE  LOCAL  DEFAULT    1 $d
@@ -121,14 +121,14 @@ Symbol table '.symtab' contains 1808 entries:
     63: 00000e18     0 NOTYPE  LOCAL  DEFAULT    1 $d
     64: 00000e20     0 NOTYPE  LOCAL  DEFAULT    1 $t
     65: 00000ed8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-    66: 10000194     0 NOTYPE  LOCAL  DEFAULT    2 $d
-    67: 10000194     4 OBJECT  LOCAL  DEFAULT    2 auto_mode
-    68: 100001a0     0 NOTYPE  LOCAL  DEFAULT    3 $d
-    69: 100001a0    56 OBJECT  LOCAL  DEFAULT    3 ctx
-    70: 100001d8     4 OBJECT  LOCAL  DEFAULT    3 delay
-    71: 100001dc     4 OBJECT  LOCAL  DEFAULT    3 auto_program_index
-    72: 100001e0     4 OBJECT  LOCAL  DEFAULT    3 auto_delay
-    73: 100001e4    32 OBJECT  LOCAL  DEFAULT    3 frame_buf
+    66: 100001a0     0 NOTYPE  LOCAL  DEFAULT    2 $d
+    67: 100001a0     4 OBJECT  LOCAL  DEFAULT    2 auto_mode
+    68: 100001ac     0 NOTYPE  LOCAL  DEFAULT    3 $d
+    69: 100001ac    56 OBJECT  LOCAL  DEFAULT    3 ctx
+    70: 100001e4     4 OBJECT  LOCAL  DEFAULT    3 delay
+    71: 100001e8     4 OBJECT  LOCAL  DEFAULT    3 auto_program_index
+    72: 100001ec     4 OBJECT  LOCAL  DEFAULT    3 auto_delay
+    73: 100001f0    32 OBJECT  LOCAL  DEFAULT    3 frame_buf
     74: 00000000     0 FILE    LOCAL  DEFAULT  ABS threads.c
     75: 00000ee4     0 NOTYPE  LOCAL  DEFAULT    1 $t
     76: 00000f4c     0 NOTYPE  LOCAL  DEFAULT    1 $d
@@ -160,8 +160,8 @@ Symbol table '.symtab' contains 1808 entries:
    102: 0000122c     0 NOTYPE  LOCAL  DEFAULT    1 $d
    103: 00001230     0 NOTYPE  LOCAL  DEFAULT    1 $t
    104: 00001264     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   105: 00004bac     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   106: 00004bac    16 OBJECT  LOCAL  DEFAULT    1 CSWTCH.1
+   105: 000050f0     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   106: 000050f0    16 OBJECT  LOCAL  DEFAULT    1 CSWTCH.1
    107: 00000000     0 FILE    LOCAL  DEFAULT  ABS ioconfig.c
    108: 00001268     0 NOTYPE  LOCAL  DEFAULT    1 $t
    109: 00001270     0 NOTYPE  LOCAL  DEFAULT    1 $d
@@ -826,19 +826,19 @@ Symbol table '.symtab' contains 1808 entries:
    768: 00003190     0 NOTYPE  LOCAL  DEFAULT    1 $d
    769: 00003194     0 NOTYPE  LOCAL  DEFAULT    1 $t
    770: 000031a8     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   771: 00004bbc     0 NOTYPE  LOCAL  DEFAULT    1 $d
-   772: 00004bbc    36 OBJECT  LOCAL  DEFAULT    1 matrix_led_off
-   773: 00004be0    36 OBJECT  LOCAL  DEFAULT    1 matrix_led_on
-   774: 10000204     0 NOTYPE  LOCAL  DEFAULT    3 $d
-   775: 10000204     4 OBJECT  LOCAL  DEFAULT    3 matrix_max_bright
-   776: 10000208     4 OBJECT  LOCAL  DEFAULT    3 matrix_max_global_bright
-   777: 1000020c     4 OBJECT  LOCAL  DEFAULT    3 max_total_bright
-   778: 10000210     4 OBJECT  LOCAL  DEFAULT    3 matrix_global_bright
-   779: 10000214    90 OBJECT  LOCAL  DEFAULT    3 matrix_bright_cur_rgb
-   780: 1000026e     9 OBJECT  LOCAL  DEFAULT    3 matrix_led_line_state
-   781: 10000277     9 OBJECT  LOCAL  DEFAULT    3 matrix_led_line_timecnt
-   782: 10000280     4 OBJECT  LOCAL  DEFAULT    3 matrix_cur_line
-   783: 10000284     4 OBJECT  LOCAL  DEFAULT    3 matrix_cur_cnt
+   771: 00005100     0 NOTYPE  LOCAL  DEFAULT    1 $d
+   772: 00005100    36 OBJECT  LOCAL  DEFAULT    1 matrix_led_off
+   773: 00005124    36 OBJECT  LOCAL  DEFAULT    1 matrix_led_on
+   774: 10000210     0 NOTYPE  LOCAL  DEFAULT    3 $d
+   775: 10000210     4 OBJECT  LOCAL  DEFAULT    3 matrix_max_bright
+   776: 10000214     4 OBJECT  LOCAL  DEFAULT    3 matrix_max_global_bright
+   777: 10000218     4 OBJECT  LOCAL  DEFAULT    3 max_total_bright
+   778: 1000021c     4 OBJECT  LOCAL  DEFAULT    3 matrix_global_bright
+   779: 10000220    90 OBJECT  LOCAL  DEFAULT    3 matrix_bright_cur_rgb
+   780: 1000027a     9 OBJECT  LOCAL  DEFAULT    3 matrix_led_line_state
+   781: 10000283     9 OBJECT  LOCAL  DEFAULT    3 matrix_led_line_timecnt
+   782: 1000028c     4 OBJECT  LOCAL  DEFAULT    3 matrix_cur_line
+   783: 10000290     4 OBJECT  LOCAL  DEFAULT    3 matrix_cur_cnt
    784: 00000000     0 FILE    LOCAL  DEFAULT  ABS string.c
    785: 000031ac     0 NOTYPE  LOCAL  DEFAULT    1 $t
    786: 00000000     0 FILE    LOCAL  DEFAULT  ABS switches.c
@@ -1168,9 +1168,9 @@ Symbol table '.symtab' contains 1808 entries:
   1110: 00004108     0 NOTYPE  LOCAL  DEFAULT    1 $t
   1111: 00004164     0 NOTYPE  LOCAL  DEFAULT    1 $d
   1112: 10000000     0 NOTYPE  LOCAL  DEFAULT    2 $d
-  1113: 10000288     0 NOTYPE  LOCAL  DEFAULT    3 $d
-  1114: 10000288    24 OBJECT  LOCAL  DEFAULT    3 HidDevInfo
-  1115: 100002a0     8 OBJECT  LOCAL  DEFAULT    3 DeviceInfo
+  1113: 10000294     0 NOTYPE  LOCAL  DEFAULT    3 $d
+  1114: 10000294    24 OBJECT  LOCAL  DEFAULT    3 HidDevInfo
+  1115: 100002ac     8 OBJECT  LOCAL  DEFAULT    3 DeviceInfo
   1116: 00000000     0 FILE    LOCAL  DEFAULT  ABS movies.c
   1117: 00004174     0 NOTYPE  LOCAL  DEFAULT    1 $d
   1118: 10000180     0 NOTYPE  LOCAL  DEFAULT    2 $d
@@ -1182,7 +1182,7 @@ Symbol table '.symtab' contains 1808 entries:
   1124: 10002000     0 NOTYPE  LOCAL  DEFAULT  ABS _ram_end
   1125: 00008000     0 NOTYPE  LOCAL  DEFAULT  ABS _flash_size
   1126: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 _flash_start
-  1127: 00004b3c     0 NOTYPE  LOCAL  DEFAULT    1 $d
+  1127: 00005080     0 NOTYPE  LOCAL  DEFAULT    1 $d
   1128: 0000081b   492 FUNC    GLOBAL DEFAULT    1 frame_decompressor_get_ne
   1129: 00001087    18 FUNC    GLOBAL DEFAULT    1 bit_is_set
   1130: 000013d9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_resistor
@@ -1233,7 +1233,7 @@ Symbol table '.symtab' contains 1808 entries:
   1175: 000016e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_1_set_func_gpi
   1176: 00003251    12 FUNC    GLOBAL DEFAULT    1 ssp_reset_enabled
   1177: 00000b3d   164 FUNC    GLOBAL DEFAULT    1 thread_buttons_init
-  1178: 10000338    24 OBJECT  GLOBAL DEFAULT    3 led_bat_2_ctx
+  1178: 10000344    24 OBJECT  GLOBAL DEFAULT    3 led_bat_2_ctx
   1179: 0000171d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_1_set_resistor
   1180: 00001ae5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_resistor
   1181: 0000157d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_func_ct1
@@ -1241,7 +1241,7 @@ Symbol table '.symtab' contains 1808 entries:
   1183: 00000f75    16 FUNC    GLOBAL DEFAULT    1 timer32_0_irqhandler
   1184: 0000285d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_resisto
   1185: 00002c4f     8 FUNC    GLOBAL DEFAULT    1 led_ann_1g_off
-  1186: 10000350    24 OBJECT  GLOBAL DEFAULT    3 led_bat_0_ctx
+  1186: 1000035c    24 OBJECT  GLOBAL DEFAULT    3 led_bat_0_ctx
   1187: 00001e61    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_resistor
   1188: 00002189    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
   1189: 00003351    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
@@ -1274,7 +1274,7 @@ Symbol table '.symtab' contains 1808 entries:
   1216: 000015c1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
   1217: 000013a1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_resistor
   1218: 00000b29     4 FUNC    GLOBAL DEFAULT    1 btn_act_1
-  1219: 00004c04     0 NOTYPE  GLOBAL DEFAULT    1 _etext
+  1219: 00005148     0 NOTYPE  GLOBAL DEFAULT    1 _etext
   1220: 00003f45    12 FUNC    GLOBAL DEFAULT    1 runcfg_bod_power_off
   1221: 000017ad    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_resistor
   1222: 0000168d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
@@ -1299,7 +1299,7 @@ Symbol table '.symtab' contains 1808 entries:
   1241: 0000249d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_resistor
   1242: 000033f9    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
   1243: 00001c79    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_resisto
-  1244: 00004b3c   112 OBJECT  GLOBAL DEFAULT    1 USB_StringDescriptor
+  1244: 00005080   112 OBJECT  GLOBAL DEFAULT    1 USB_StringDescriptor
   1245: 0000106b    28 FUNC    GLOBAL DEFAULT    1 set_bit
   1246: 00003931    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
   1247: 00003d8d    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct16b1_enable_c
@@ -1353,7 +1353,7 @@ Symbol table '.symtab' contains 1808 entries:
   1295: 00003f21    12 FUNC    GLOBAL DEFAULT    1 runcfg_flash_power_on
   1296: 00000b2d     4 FUNC    GLOBAL DEFAULT    1 btn_act_2
   1297: 00003125    12 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_get_global
-  1298: 100002a8    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_2
+  1298: 100002b4    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_2
   1299: 00000be1    68 FUNC    GLOBAL DEFAULT    1 thread_buttons_tick
   1300: 000019f5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_hysteres
   1301: 00001099    10 FUNC    GLOBAL DEFAULT    1 set_all_bits_zero
@@ -1397,7 +1397,7 @@ Symbol table '.symtab' contains 1808 entries:
   1339: 00002435    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_func_ct3
   1340: 00002f83   114 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_init
   1341: 000013e5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_hysteres
-  1342: 100002c0    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_5
+  1342: 100002cc    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_5
   1343: 00003bf1    68 FUNC    GLOBAL DEFAULT    1 mainclk_set_clock_source_
   1344: 0000364d    14 FUNC    GLOBAL DEFAULT    1 syspll_set_dividers_12MHz
   1345: 00001f6d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_resisto
@@ -1414,455 +1414,458 @@ Symbol table '.symtab' contains 1808 entries:
   1356: 00003669    14 FUNC    GLOBAL DEFAULT    1 syspll_set_dividers_12MHz
   1357: 0000123d    44 FUNC    GLOBAL DEFAULT    1 gpio_get_data_bit
   1358: 000019b1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
-  1359: 0000454a   283 OBJECT  GLOBAL DEFAULT    1 bin_movies_testfw3_bin
+  1359: 00004768   283 OBJECT  GLOBAL DEFAULT    1 bin_movies_testfw3_bin
   1360: 00000f8d     2 FUNC    GLOBAL DEFAULT    1 cmdLedsRed
-  1361: 10000368    24 OBJECT  GLOBAL DEFAULT    3 led_bat_3_ctx
+  1361: 10000374    24 OBJECT  GLOBAL DEFAULT    3 led_bat_3_ctx
   1362: 0000352d    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
   1363: 00003319    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
   1364: 000017e5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_resistor
-  1365: 10000380    24 OBJECT  GLOBAL DEFAULT    3 led_bat_1_ctx
+  1365: 1000038c    24 OBJECT  GLOBAL DEFAULT    3 led_bat_1_ctx
   1366: 000036c9    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
   1367: 00001f51    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_resisto
   1368: 0000359d    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1369: 00002e4f    96 FUNC    GLOBAL DEFAULT    1 print_bat_leds
-  1370: 00000f9d     2 FUNC    GLOBAL DEFAULT    1 DPCDispatch
-  1371: 00003275    12 FUNC    GLOBAL DEFAULT    1 i2c_reset_disabled
-  1372: 00003c79    60 FUNC    GLOBAL DEFAULT    1 mainclk_set_clock_source_
-  1373: 00003469    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1374: 000035b9    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1375: 0000254d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_resistor
-  1376: 0000386d    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1377: 00001237     6 FUNC    GLOBAL DEFAULT    1 gpio_set_data_bit_one
-  1378: 00001b91    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_resistor
-  1379: 00002a29    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_resistor
-  1380: 00001b29    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_hysteres
-  1381: 000038c1    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1382: 0000201d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_10_set_resisto
-  1383: 00002c87     8 FUNC    GLOBAL DEFAULT    1 led_ann_3b_off
-  1384: 00003f15    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_power_off
-  1385: 10000398     0 NOTYPE  GLOBAL DEFAULT    3 _ebss
-  1386: 00002101    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_r_
-  1387: 00003fd5    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbphy_power_off
-  1388: 00001f79    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_hystere
-  1389: 000007d7     8 FUNC    GLOBAL DEFAULT    1 bit_reader_rest_bit_count
-  1390: 00001485    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_resistor
-  1391: 00002705    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_resistor
-  1392: 00002cdb    22 FUNC    GLOBAL DEFAULT    1 led_dbg_blue_power_on
-  1393: 00002939    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_func_ct3
-  1394: 00002c8f     8 FUNC    GLOBAL DEFAULT    1 led_ann_3r_off
-  1395: 0000105d    14 FUNC    GLOBAL DEFAULT    1 set_bit_one
-  1396: 00003e4d    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_iocon_enable_cl
-  1397: 00000f8b     2 FUNC    GLOBAL DEFAULT    1 cmdLedsOff
-  1398: 00001d09    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_resistor
-  1399: 100002d8    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_4
-  1400: 00002b7d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_hysteres
-  1401: 00001a8d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_func_usb
-  1402: 000015a5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
-  1403: 000006db     4 FUNC    GLOBAL DEFAULT    1 timer32_0_irq_handler
-  1404: 0000205d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_func_gp
-  1405: 00002d53   230 FUNC    GLOBAL DEFAULT    1 init_leds
-  1406: 00003ef1    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_out_power_on
-  1407: 00002069    48 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_func_sc
-  1408: 00002961    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
-  1409: 000006e9     2 FUNC    GLOBAL DEFAULT    1 usb_fiq_handler
-  1410: 00003f8d    12 FUNC    GLOBAL DEFAULT    1 runcfg_wdtosc_power_off
-  1411: 00002911    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_func_gpi
-  1412: 00002955    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
-  1413: 10002000     0 NOTYPE  GLOBAL DEFAULT  ABS _stack_top
-  1414: 00000f8f     2 FUNC    GLOBAL DEFAULT    1 cmdLedsGreen
-  1415: 000006c1     2 FUNC    GLOBAL DEFAULT    1 mem_manager_handler
-  1416: 00002f7f     4 FUNC    GLOBAL DEFAULT    1 led_fsm_get_bright
-  1417: 00001681    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
-  1418: 00002411    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_func_ad3
-  1419: 0000404d    24 FUNC    GLOBAL DEFAULT    1 enable_timer32
-  1420: 00003335    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1421: 000012e9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_func_dtr
-  1422: 000023ad    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
-  1423: 00003969    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1424: 00002bb5    22 FUNC    GLOBAL DEFAULT    1 led_ann_1r_on
-  1425: 0000111d    20 FUNC    GLOBAL DEFAULT    1 btn_3_is_set
-  1426: 00001e55    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_resistor
-  1427: 000006d3     4 FUNC    GLOBAL DEFAULT    1 timer16_0_irq_handler
-  1428: 000006c7     2 FUNC    GLOBAL DEFAULT    1 sv_call_handler
-  1429: 00002481    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_resistor
-  1430: 00003d15    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_flashreg_enable
-  1431: 00002ad5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_resistor
-  1432: 0000193d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_resistor
-  1433: 000024a9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_hysteres
-  1434: 00003d45    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_i2c_enable_cloc
-  1435: 00002c9f    22 FUNC    GLOBAL DEFAULT    1 led_dbg_red_power_on
-  1436: 00001ebd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_func_sw
-  1437: 00001a41    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
-  1438: 0000262d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_hysteres
-  1439: 000014ad    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_hysteres
-  1440: 00001561    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_func_sse
-  1441: 000033c1    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1442: 00003a0d    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_second_diviver
-  1443: 00001b35    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_hysteres
-  1444: 00002cf1     8 FUNC    GLOBAL DEFAULT    1 led_bat_0_power_off
-  1445: 00001d55    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_func_mis
-  1446: 0000132d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_resistor
-  1447: 00000f9b     2 FUNC    GLOBAL DEFAULT    1 processCommandDPC
-  1448: 000025b5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_func_ri
-  1449: 00002195    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
-  1450: 00002841    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_resisto
-  1451: 00000c25   156 FUNC    GLOBAL DEFAULT    1 thread_leds_init
-  1452: 000010f5    20 FUNC    GLOBAL DEFAULT    1 btn_1_is_set
-  1453: 00003609    28 FUNC    GLOBAL DEFAULT    1 syspll_set_second_diviver
-  1454: 000023c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_hysteres
-  1455: 10000180    16 OBJECT  GLOBAL DEFAULT    2 array_bin_ptrs
-  1456: 000024d9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_resistor
-  1457: 00003e59    60 FUNC    GLOBAL DEFAULT    1 usbclk_set_clock_source_u
-  1458: 000013bd    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_resistor
-  1459: 00001b01    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_resistor
-  1460: 00003219    28 FUNC    GLOBAL DEFAULT    1 remap_vectors_to_sram
-  1461: 00000ffd    72 FUNC    GLOBAL DEFAULT    1 ADCRead
-  1462: 100002f0    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_1
-  1463: 000035d5    12 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1464: 000006bf     2 FUNC    GLOBAL DEFAULT    1 hard_fault_handler
-  1465: 00001131    20 FUNC    GLOBAL DEFAULT    1 btn_4_is_set
-  1466: 000037a9    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1467: 000027dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_hysteres
-  1468: 00003a35    14 FUNC    GLOBAL DEFAULT    1 usbpll_set_dividers_12MHz
-  1469: 00003235    28 FUNC    GLOBAL DEFAULT    1 remap_vectors_to_flash
-  1470: 00002535    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_func_gpi
-  1471: 0000116d    96 FUNC    GLOBAL DEFAULT    1 btn_fsm_step
-  1472: 000006d7     4 FUNC    GLOBAL DEFAULT    1 timer16_1_irq_handler
-  1473: 000016f5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_1_set_func_dsr
-  1474: 000021e5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_hystere
-  1475: 00001469    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_resistor
-  1476: 10000198     0 NOTYPE  GLOBAL DEFAULT    3 _bss
-  1477: 000006f1     2 FUNC    GLOBAL DEFAULT    1 fmc_irq_handler
-  1478: 000016dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_hysteres
-  1479: 00000b35     4 FUNC    GLOBAL DEFAULT    1 btn_act_4
-  1480: 00001c05    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_9_set_resistor
-  1481: 000028f9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_hysteres
-  1482: 00000a71    12 FUNC    GLOBAL DEFAULT    1 reset_new_program_flag
-  1483: 000006cb     2 FUNC    GLOBAL DEFAULT    1 pend_sv_handler
-  1484: 00002d0f     8 FUNC    GLOBAL DEFAULT    1 led_bat_1_power_off
-  1485: 00002d4b     8 FUNC    GLOBAL DEFAULT    1 led_bat_3_power_off
-  1486: 000025d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_resistor
-  1487: 000006d1     2 FUNC    GLOBAL DEFAULT    1 i2c_irq_handler
-  1488: 00004665   618 OBJECT  GLOBAL DEFAULT    1 bin_movies_testfw2_bin
-  1489: 00004174     4 OBJECT  GLOBAL DEFAULT    1 count_bin_files
-  1490: 00002a45    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_resistor
-  1491: 00001c45    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_func_gp
-  1492: 00002c77     8 FUNC    GLOBAL DEFAULT    1 led_ann_2r_off
-  1493: 00002231    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_func_ad1
-  1494: 00001909    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_func_gpi
-  1495: 00001859    48 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_4_set_func_scl
-  1496: 000017c9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_resistor
-  1497: 00001601    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_7_set_func_gpi
-  1498: 00003889    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1499: 000038f9    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1500: 00000a35    24 FUNC    GLOBAL DEFAULT    1 scene_speed_up
-  1501: 00002591    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_hysteres
-  1502: 00002165    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_ct
-  1503: 00001cb9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_func_gpi
-  1504: 000028d1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_resistor
-  1505: 000012b9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_resistor
-  1506: 00003b71    68 FUNC    GLOBAL DEFAULT    1 usbpll_set_clock_source_s
-  1507: 00001f85    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_hystere
-  1508: 00003771    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1509: 00003de1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_uart_disable_cl
-  1510: 000034f5    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1511: 0000336d    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1512: 000006cf     2 FUNC    GLOBAL DEFAULT    1 wakeup_irq_handler
-  1513: 00001bb9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_hysteres
-  1514: 00002b2d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_resistor
-  1515: 00001dd1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_resistor
-  1516: 00000aad    28 FUNC    GLOBAL DEFAULT    1 scene_program_down
-  1517: 00002279    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
-  1518: 00001145    20 FUNC    GLOBAL DEFAULT    1 btn_5_is_set
-  1519: 000010e1    20 FUNC    GLOBAL DEFAULT    1 btn_0_is_set
-  1520: 000022bd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
-  1521: 00000f9f     2 FUNC    GLOBAL DEFAULT    1 GetInReport
-  1522: 000039f1    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_second_diviver
-  1523: 00003851    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1524: 000020c1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
-  1525: 0000259d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_hysteres
-  1526: 00003fc9    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbphy_power_on
-  1527: 00002621    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_hysteres
-  1528: 00000ac9    10 FUNC    GLOBAL DEFAULT    1 load_delay_from_frame
-  1529: 000032e1    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1530: 00003a6d    36 FUNC    GLOBAL DEFAULT    1 sysosc_enable_1MHz_20MHz
-  1531: 00002999    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
-  1532: 00002391    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
-  1533: 10000000   384 OBJECT  GLOBAL DEFAULT    2 usb_drv_ram_buffers
-  1534: 000023d1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_func_r_j
-  1535: 00003269    12 FUNC    GLOBAL DEFAULT    1 i2c_reset_enabled
-  1536: 000023b9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_hysteres
-  1537: 000026e9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_resistor
-  1538: 00002c39    22 FUNC    GLOBAL DEFAULT    1 led_ann_3r_on
-  1539: 000024b5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_hysteres
-  1540: 000039a1    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1541: 000027f5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_func_gp
-  1542: 00002285    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
-  1543: 000011dd    24 FUNC    GLOBAL DEFAULT    1 gpio_set_dir
-  1544: 00001ca1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_hystere
-  1545: 00001915    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_func_ct1
-  1546: 00002541    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_resistor
-  1547: 000006ed     2 FUNC    GLOBAL DEFAULT    1 wdt_irq_handler
-  1548: 00003739    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1549: 0000104d    16 FUNC    GLOBAL DEFAULT    1 set_bit_zero
-  1550: 00001ec9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_func_gp
-  1551: 00003e11    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_usbreg_disable_
-  1552: 00000401   646 FUNC    GLOBAL DEFAULT    1 board_init
-  1553: 000010a3     8 FUNC    GLOBAL DEFAULT    1 set_all_bits_one
-  1554: 000036e5    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1555: 000012d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_hysteres
-  1556: 000027b5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_resistor
-  1557: 0000269d    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_func_ct3
-  1558: 00000f27     4 FUNC    GLOBAL DEFAULT    1 tick_thread_16_0
-  1559: 0000320d    12 FUNC    GLOBAL DEFAULT    1 remap_vectors_to_boot_rom
-  1560: 00001e01    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_func_mos
-  1561: 00000000     0 NOTYPE  GLOBAL DEFAULT    1 _text
-  1562: 000017fd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_hysteres
-  1563: 00003e29    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_wdt_disable_clo
-  1564: 00003625    12 FUNC    GLOBAL DEFAULT    1 syspll_set_second_diviver
-  1565: 00000cf5   232 FUNC    GLOBAL DEFAULT    1 thread_leds_set_bat_level
-  1566: 00001409    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_func_clk
-  1567: 00001cad    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_hystere
-  1568: 10000180     0 NOTYPE  GLOBAL DEFAULT    2 _usb_drv_ram_size
-  1569: 00001ced    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_resistor
-  1570: 00002c57     8 FUNC    GLOBAL DEFAULT    1 led_ann_1b_off
-  1571: 00003d39    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_i2c_disable_clo
-  1572: 000021b1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
-  1573: 000006c9     2 FUNC    GLOBAL DEFAULT    1 debug_mon_handler
-  1574: 000022a1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
-  1575: 000024c1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_func_gpi
-  1576: 00003691    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1577: 000021f1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_func_r_j
-  1578: 00001df5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_func_gpi
-  1579: 00003fb1    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbpll_power_on
-  1580: 000014b9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_hysteres
-  1581: 00003e95    68 FUNC    GLOBAL DEFAULT    1 usbclk_set_clock_source_m
-  1582: 000031ad    16 FUNC    GLOBAL DEFAULT    1 memset
-  1583: 00001599    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
-  1584: 00002e39    22 FUNC    GLOBAL DEFAULT    1 led_bat_3_power_on
-  1585: 00002369    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
-  1586: 000006fd    18 FUNC    GLOBAL DEFAULT    1 main
-  1587: 00002c67     8 FUNC    GLOBAL DEFAULT    1 led_ann_2g_off
-  1588: 00003a91    36 FUNC    GLOBAL DEFAULT    1 sysosc_enable_15MHz_25MHz
-  1589: 00001b4d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_func_cts
-  1590: 00003f09    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_power_on
-  1591: 000014f9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
-  1592: 00002b49    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_resistor
-  1593: 00003cf1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ram_disable_clo
-  1594: 00003ccd    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ahb2apb_bridge_
-  1595: 000040f5    20 FUNC    GLOBAL DEFAULT    1 usbdrvrom_connect
-  1596: 000013f1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_hysteres
-  1597: 000006cd     2 FUNC    GLOBAL DEFAULT    1 sys_tick_handler
-  1598: 000016c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
-  1599: 00002375    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
-  1600: 00001ddd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_hysteres
-  1601: 00003a43    14 FUNC    GLOBAL DEFAULT    1 usbpll_is_locked
-  1602: 000011cd    14 FUNC    GLOBAL DEFAULT    1 delay_ticks
-  1603: 00002321    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_func_ad2
-  1604: 00000f93     2 FUNC    GLOBAL DEFAULT    1 cmdSetDebugBuf
-  1605: 00001c51    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_resisto
-  1606: 00000f2b     4 FUNC    GLOBAL DEFAULT    1 tick_thread_16_1
-  1607: 00000f89     2 FUNC    GLOBAL DEFAULT    1 cmdReadAdc
-  1608: 00002511    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_resistor
-  1609: 00003f99    12 FUNC    GLOBAL DEFAULT    1 runcfg_syspll_power_on
-  1610: 00000a09    16 FUNC    GLOBAL DEFAULT    1 scene_bright_up
-  1611: 000006eb     2 FUNC    GLOBAL DEFAULT    1 adc_irq_handler
-  1612: 10000180     0 NOTYPE  GLOBAL DEFAULT    2 _usb_drv_ram_end
-  1613: 000029e5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_func_ct3
-  1614: 000027e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_hysteres
-  1615: 000035e1    12 FUNC    GLOBAL DEFAULT    1 syspll_set_second_diviver
-  1616: 00003ded    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_uart_enable_clo
-  1617: 00003549    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1618: 00000f33    34 FUNC    GLOBAL DEFAULT    1 loop_main_thread
-  1619: 000015dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
-  1620: 00001f29    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_resisto
-  1621: 000027d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_resistor
-  1622: 00003ab5    60 FUNC    GLOBAL DEFAULT    1 syspll_set_clock_source_i
-  1623: 00003431    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1624: 000015f5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_hysteres
-  1625: 00002afd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_hysteres
-  1626: 000006f7     2 FUNC    GLOBAL DEFAULT    1 pio_int1_irq_handler
-  1627: 00000f95     2 FUNC    GLOBAL DEFAULT    1 cmdFmSendData
-  1628: 00002ab9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_resistor
-  1629: 00002099    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
-  1630: 000029a5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_hysteres
-  1631: 00002cb5     8 FUNC    GLOBAL DEFAULT    1 led_dbg_green_power_off
-  1632: 000014a1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_resistor
-  1633: 00003fbd    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbpll_power_off
-  1634: 00000f97     2 FUNC    GLOBAL DEFAULT    1 cmdFmRecvData
-  1635: 00000b31     4 FUNC    GLOBAL DEFAULT    1 btn_act_3
-  1636: 00001275    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_resistor
-  1637: 000022d5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_hysteres
-  1638: 10000308    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_3
-  1639: 00000ee5    66 FUNC    GLOBAL DEFAULT    1 init_threads
-  1640: 00001a0d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_func_gpi
-  1641: 00003d21    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_flasharray_disa
-  1642: 10000000     0 NOTYPE  GLOBAL DEFAULT    2 _usb_drv_ram_start
-  1643: 000026c1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_resistor
-  1644: 000028ed    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_resistor
-  1645: 00003efd    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_out_power_off
-  1646: 00001831    40 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_4_set_func_scl
-  1647: 00002f05    26 FUNC    GLOBAL DEFAULT    1 led_ann_cs_one_on
-  1648: 00003915    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1649: 000019e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
-  1650: 0000251d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_hysteres
-  1651: 00002b09    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_hysteres
-  1652: 000016a9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
-  1653: 000019a5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
-  1654: 000013fd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_func_gpi
-  1655: 00001515    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
-  1656: 00001531    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
-  1657: 00002af1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_resistor
-  1658: 000014c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_func_gpi
-  1659: 000040cd    20 FUNC    GLOBAL DEFAULT    1 usbdrvrom_isr
-  1660: 000034a1    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1661: 000020f5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_hystere
-  1662: 0000317d    24 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_get_green
-  1663: 000039d9    12 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1664: 10000000     0 NOTYPE  GLOBAL DEFAULT    2 _data
-  1665: 00001a5d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
-  1666: 0000070f    26 FUNC    GLOBAL DEFAULT    1 bit_reader_init
-  1667: 000037fd    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1668: 00003cfd    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ram_enable_cloc
-  1669: 00001395    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_resistor
-  1670: 00003e05    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_adc_enable_cloc
-  1671: 00003281    12 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1672: 000014ed    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
-  1673: 00002cd3     8 FUNC    GLOBAL DEFAULT    1 led_dbg_blue_power_off
-  1674: 00001d31    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_hysteres
-  1675: 00003d75    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct16b0_enable_c
-  1676: 000031f9    20 FUNC    GLOBAL DEFAULT    1 switch_dbg_is_set
-  1677: 0000378d    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1678: 00001cc5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_func_dcd
-  1679: 00003485    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1680: 00003a51    28 FUNC    GLOBAL DEFAULT    1 sysosc_disable
-  1681: 000025f9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_resistor
-  1682: 00003dd5    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ssp_enable_cloc
-  1683: 0000297d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
-  1684: 00001425    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_func_ct3
-  1685: 000022c9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_hysteres
-  1686: 00002769    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_func_ct3
-  1687: 000006e3     2 FUNC    GLOBAL DEFAULT    1 uart_irq_handler
-  1688: 00001ce1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_resistor
-  1689: 00003f5d    12 FUNC    GLOBAL DEFAULT    1 runcfg_adc_power_off
-  1690: 00003ff9    84 FUNC    GLOBAL DEFAULT    1 init_timer16
-  1691: 00002811    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_func_ad
-  1692: 000029b1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_hysteres
-  1693: 00001045     8 FUNC    GLOBAL DEFAULT    1 bit_mask
-  1694: 10000198     0 NOTYPE  GLOBAL DEFAULT    2 _edata
-  1695: 00002141    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_ad
-  1696: 00003b35    60 FUNC    GLOBAL DEFAULT    1 usbpll_set_clock_source_i
-  1697: 00001aa9    48 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_func_sck
-  1698: 00001f0d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_func_ct
-  1699: 00002c7f     8 FUNC    GLOBAL DEFAULT    1 led_ann_3g_off
-  1700: 00002569    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_resistor
-  1701: 00003819    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1702: 00002885    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_hystere
-  1703: 00001785    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_func_usb
-  1704: 00001b41    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_func_gpi
-  1705: 00001eb1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_hysteres
-  1706: 00003389    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1707: 00002c6f     8 FUNC    GLOBAL DEFAULT    1 led_ann_2b_off
-  1708: 000006bd     2 FUNC    GLOBAL DEFAULT    1 nmi_handler
-  1709: 0000310d    24 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_set_global
-  1710: 00001b69    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_resistor
-  1711: 00002255    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_func_ct3
-  1712: 000006e1     2 FUNC    GLOBAL DEFAULT    1 ssp_irq_handler
-  1713: 00002cbd    22 FUNC    GLOBAL DEFAULT    1 led_dbg_green_power_on
-  1714: 00003f69    12 FUNC    GLOBAL DEFAULT    1 runcfg_sysosc_power_on
-  1715: 00003dbd    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct32b1_enable_c
-  1716: 00003165    24 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_get_red
-  1717: 00002b21    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_resistor
-  1718: 00002bcb    22 FUNC    GLOBAL DEFAULT    1 led_ann_2g_on
-  1719: 00001a25    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
-  1720: 0000328d    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1721: 00001d3d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_hysteres
-  1722: 0000153d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_hysteres
-  1723: 00000b39     4 FUNC    GLOBAL DEFAULT    1 btn_act_5
-  1724: 00003677    14 FUNC    GLOBAL DEFAULT    1 syspll_is_locked
-  1725: 0000271d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_hysteres
-  1726: 00002d35    22 FUNC    GLOBAL DEFAULT    1 led_bat_2_power_on
-  1727: 0000211d    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_gp
-  1728: 000022fd    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_func_gpi
-  1729: 00002d2d     8 FUNC    GLOBAL DEFAULT    1 led_bat_2_power_off
-  1730: 0000165d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_7_set_hysteres
-  1731: 00001361    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_hysteres
-  1732: 00001a81    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_func_gpi
-  1733: 000028b5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_resistor
-  1734: 00001975    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_resistor
-  1735: 00003f39    12 FUNC    GLOBAL DEFAULT    1 runcfg_bod_power_on
-  1736: 00004109   108 FUNC    GLOBAL DEFAULT    1 usbdrvrom_init_connect
-  1737: 000031f1     8 FUNC    GLOBAL DEFAULT    1 init_switches
-  1738: 00001c2d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_9_set_hysteres
-  1739: 00003f51    12 FUNC    GLOBAL DEFAULT    1 runcfg_adc_power_on
-  1740: 000040b9    20 FUNC    GLOBAL DEFAULT    1 usbdrvrom_init_clk_pins
-  1741: 00001f35    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_resisto
-  1742: 00000f85     2 FUNC    GLOBAL DEFAULT    1 cmdTest
-  1743: 00003cc1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_set_divider
-  1744: 00001231     6 FUNC    GLOBAL DEFAULT    1 gpio_set_data_bit_zero
-  1745: 00003131    52 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_set_rgb_br
-  1746: 00000000  1024 OBJECT  GLOBAL DEFAULT    1 vectors
-  1747: 000006f5     2 FUNC    GLOBAL DEFAULT    1 pio_int2_irq_handler
-  1748: 00002a91    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_func_ct3
-  1749: 00001779    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_func_gpi
-  1750: 000032c5    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1751: 00003f81    12 FUNC    GLOBAL DEFAULT    1 runcfg_wdtosc_power_on
-  1752: 000016d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_hysteres
-  1753: 000020a5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
-  1754: 000021cd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
-  1755: 00002835    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_resisto
-  1756: 000012c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_hysteres
-  1757: 00002b15    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_func_gpi
-  1758: 00002f1f    16 FUNC    GLOBAL DEFAULT    1 led_fsm_init
-  1759: 00001755    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_1_set_resistor
-  1760: 00001349    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_resistor
-  1761: 00000e21    12 FUNC    GLOBAL DEFAULT    1 thread_movie_init
-  1762: 00003755    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1763: 00001e39    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_func_swo
-  1764: 00002c5f     8 FUNC    GLOBAL DEFAULT    1 led_ann_1r_off
-  1765: 00000f99     2 FUNC    GLOBAL DEFAULT    1 processCommand
-  1766: 000006c3     2 FUNC    GLOBAL DEFAULT    1 bus_fault_handler
-  1767: 00003d5d    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_gpio_enable_clo
-  1768: 00002eaf    86 FUNC    GLOBAL DEFAULT    1 led_ann_cs_all_off
-  1769: 00002615    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_resistor
-  1770: 000006f9     2 FUNC    GLOBAL DEFAULT    1 pio_int0_irq_handler
-  1771: 00001201    48 FUNC    GLOBAL DEFAULT    1 gpio_set_data_bit
-  1772: 00002b71    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_hysteres
-  1773: 000020dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
-  1774: 00001d71    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_func_ct1
-  1775: 00003d51    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_gpio_disable_cl
-  1776: 00002c0d    22 FUNC    GLOBAL DEFAULT    1 led_ann_3g_on
-  1777: 000037c5    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1778: 00002051    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_10_set_hystere
-  1779: 00001931    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_resistor
-  1780: 000038a5    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1781: 00000a19    16 FUNC    GLOBAL DEFAULT    1 scene_bright_down
-  1782: 000048cf   618 OBJECT  GLOBAL DEFAULT    1 bin_movies_testfw1_bin
-  1783: 00003cd9    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_rom_disable_clo
-  1784: 00003bb5    60 FUNC    GLOBAL DEFAULT    1 mainclk_set_clock_source_
-  1785: 00003fa5    12 FUNC    GLOBAL DEFAULT    1 runcfg_syspll_power_off
-  1786: 00002a5d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_hysteres
-  1787: 00001269    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_func_gpi
-  1788: 00002a51    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_hysteres
-  1789: 10000320    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_0
-  1790: 00001305    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_resistor
-  1791: 00001de9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_hysteres
-  1792: 00001109    20 FUNC    GLOBAL DEFAULT    1 btn_2_is_set
-  1793: 000011fb     6 FUNC    GLOBAL DEFAULT    1 gpio_set_dir_out
-  1794: 000006ef     2 FUNC    GLOBAL DEFAULT    1 bod_irq_handler
-  1795: 000034bd    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1796: 000019cd    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
-  1797: 00003db1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct32b1_disable_
-  1798: 00003985    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1799: 000032fd    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
-  1800: 000020e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_hystere
-  1801: 000039bd    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
-  1802: 000039e5    12 FUNC    GLOBAL DEFAULT    1 usbpll_set_second_diviver
-  1803: 00001a01    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_hysteres
-  1804: 0000129d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_resistor
-  1805: 00004178   978 OBJECT  GLOBAL DEFAULT    1 bin_movies_a1rgb_bin
-  1806: 00001a19    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
-  1807: 00003685    12 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1369: 0000454a   542 OBJECT  GLOBAL DEFAULT    1 bin_movies_a3rgb_bin
+  1370: 00002e4f    96 FUNC    GLOBAL DEFAULT    1 print_bat_leds
+  1371: 00000f9d     2 FUNC    GLOBAL DEFAULT    1 DPCDispatch
+  1372: 00003275    12 FUNC    GLOBAL DEFAULT    1 i2c_reset_disabled
+  1373: 00003c79    60 FUNC    GLOBAL DEFAULT    1 mainclk_set_clock_source_
+  1374: 00003469    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1375: 000035b9    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1376: 0000254d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_resistor
+  1377: 0000386d    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1378: 00001237     6 FUNC    GLOBAL DEFAULT    1 gpio_set_data_bit_one
+  1379: 00001b91    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_resistor
+  1380: 00002a29    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_resistor
+  1381: 00001b29    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_hysteres
+  1382: 000038c1    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1383: 0000201d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_10_set_resisto
+  1384: 00002c87     8 FUNC    GLOBAL DEFAULT    1 led_ann_3b_off
+  1385: 00003f15    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_power_off
+  1386: 100003a4     0 NOTYPE  GLOBAL DEFAULT    3 _ebss
+  1387: 00002101    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_r_
+  1388: 00003fd5    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbphy_power_off
+  1389: 00001f79    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_hystere
+  1390: 000007d7     8 FUNC    GLOBAL DEFAULT    1 bit_reader_rest_bit_count
+  1391: 00001485    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_resistor
+  1392: 00002705    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_resistor
+  1393: 00002cdb    22 FUNC    GLOBAL DEFAULT    1 led_dbg_blue_power_on
+  1394: 00002939    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_func_ct3
+  1395: 00002c8f     8 FUNC    GLOBAL DEFAULT    1 led_ann_3r_off
+  1396: 0000105d    14 FUNC    GLOBAL DEFAULT    1 set_bit_one
+  1397: 00003e4d    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_iocon_enable_cl
+  1398: 00000f8b     2 FUNC    GLOBAL DEFAULT    1 cmdLedsOff
+  1399: 00001d09    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_resistor
+  1400: 100002e4    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_4
+  1401: 00002b7d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_hysteres
+  1402: 00001a8d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_func_usb
+  1403: 000015a5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
+  1404: 000006db     4 FUNC    GLOBAL DEFAULT    1 timer32_0_irq_handler
+  1405: 0000205d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_func_gp
+  1406: 00002d53   230 FUNC    GLOBAL DEFAULT    1 init_leds
+  1407: 00003ef1    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_out_power_on
+  1408: 00002069    48 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_func_sc
+  1409: 00002961    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
+  1410: 000006e9     2 FUNC    GLOBAL DEFAULT    1 usb_fiq_handler
+  1411: 00003f8d    12 FUNC    GLOBAL DEFAULT    1 runcfg_wdtosc_power_off
+  1412: 00002911    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_func_gpi
+  1413: 00002955    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
+  1414: 10002000     0 NOTYPE  GLOBAL DEFAULT  ABS _stack_top
+  1415: 00000f8f     2 FUNC    GLOBAL DEFAULT    1 cmdLedsGreen
+  1416: 000006c1     2 FUNC    GLOBAL DEFAULT    1 mem_manager_handler
+  1417: 00002f7f     4 FUNC    GLOBAL DEFAULT    1 led_fsm_get_bright
+  1418: 00001681    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
+  1419: 00002411    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_func_ad3
+  1420: 0000404d    24 FUNC    GLOBAL DEFAULT    1 enable_timer32
+  1421: 00003335    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1422: 000012e9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_func_dtr
+  1423: 000023ad    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
+  1424: 00003969    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1425: 00002bb5    22 FUNC    GLOBAL DEFAULT    1 led_ann_1r_on
+  1426: 0000111d    20 FUNC    GLOBAL DEFAULT    1 btn_3_is_set
+  1427: 00001e55    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_resistor
+  1428: 000006d3     4 FUNC    GLOBAL DEFAULT    1 timer16_0_irq_handler
+  1429: 000006c7     2 FUNC    GLOBAL DEFAULT    1 sv_call_handler
+  1430: 00002481    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_resistor
+  1431: 00003d15    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_flashreg_enable
+  1432: 00002ad5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_resistor
+  1433: 0000193d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_resistor
+  1434: 000024a9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_hysteres
+  1435: 00003d45    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_i2c_enable_cloc
+  1436: 00002c9f    22 FUNC    GLOBAL DEFAULT    1 led_dbg_red_power_on
+  1437: 00001ebd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_func_sw
+  1438: 00001a41    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
+  1439: 0000262d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_hysteres
+  1440: 000014ad    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_hysteres
+  1441: 00001561    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_func_sse
+  1442: 000033c1    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1443: 00003a0d    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_second_diviver
+  1444: 00001b35    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_hysteres
+  1445: 00002cf1     8 FUNC    GLOBAL DEFAULT    1 led_bat_0_power_off
+  1446: 00001d55    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_func_mis
+  1447: 0000132d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_resistor
+  1448: 00000f9b     2 FUNC    GLOBAL DEFAULT    1 processCommandDPC
+  1449: 000025b5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_func_ri
+  1450: 00002195    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
+  1451: 00002841    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_resisto
+  1452: 00000c25   156 FUNC    GLOBAL DEFAULT    1 thread_leds_init
+  1453: 000010f5    20 FUNC    GLOBAL DEFAULT    1 btn_1_is_set
+  1454: 00003609    28 FUNC    GLOBAL DEFAULT    1 syspll_set_second_diviver
+  1455: 000023c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_hysteres
+  1456: 10000180    28 OBJECT  GLOBAL DEFAULT    2 array_bin_ptrs
+  1457: 000024d9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_resistor
+  1458: 00003e59    60 FUNC    GLOBAL DEFAULT    1 usbclk_set_clock_source_u
+  1459: 000013bd    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_resistor
+  1460: 00001b01    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_resistor
+  1461: 00003219    28 FUNC    GLOBAL DEFAULT    1 remap_vectors_to_sram
+  1462: 00000ffd    72 FUNC    GLOBAL DEFAULT    1 ADCRead
+  1463: 100002fc    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_1
+  1464: 000035d5    12 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1465: 000006bf     2 FUNC    GLOBAL DEFAULT    1 hard_fault_handler
+  1466: 00001131    20 FUNC    GLOBAL DEFAULT    1 btn_4_is_set
+  1467: 000037a9    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1468: 000027dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_hysteres
+  1469: 00003a35    14 FUNC    GLOBAL DEFAULT    1 usbpll_set_dividers_12MHz
+  1470: 00003235    28 FUNC    GLOBAL DEFAULT    1 remap_vectors_to_flash
+  1471: 00002535    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_func_gpi
+  1472: 0000116d    96 FUNC    GLOBAL DEFAULT    1 btn_fsm_step
+  1473: 000006d7     4 FUNC    GLOBAL DEFAULT    1 timer16_1_irq_handler
+  1474: 000016f5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_1_set_func_dsr
+  1475: 000021e5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_hystere
+  1476: 00001469    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_resistor
+  1477: 100001a4     0 NOTYPE  GLOBAL DEFAULT    3 _bss
+  1478: 000006f1     2 FUNC    GLOBAL DEFAULT    1 fmc_irq_handler
+  1479: 000016dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_hysteres
+  1480: 00000b35     4 FUNC    GLOBAL DEFAULT    1 btn_act_4
+  1481: 00001c05    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_9_set_resistor
+  1482: 000028f9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_hysteres
+  1483: 00000a71    12 FUNC    GLOBAL DEFAULT    1 reset_new_program_flag
+  1484: 000006cb     2 FUNC    GLOBAL DEFAULT    1 pend_sv_handler
+  1485: 00002d0f     8 FUNC    GLOBAL DEFAULT    1 led_bat_1_power_off
+  1486: 00002d4b     8 FUNC    GLOBAL DEFAULT    1 led_bat_3_power_off
+  1487: 000025d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_resistor
+  1488: 000006d1     2 FUNC    GLOBAL DEFAULT    1 i2c_irq_handler
+  1489: 00004bac   618 OBJECT  GLOBAL DEFAULT    1 bin_movies_testfw2_bin
+  1490: 00004174     4 OBJECT  GLOBAL DEFAULT    1 count_bin_files
+  1491: 00002a45    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_resistor
+  1492: 00001c45    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_func_gp
+  1493: 00002c77     8 FUNC    GLOBAL DEFAULT    1 led_ann_2r_off
+  1494: 00002231    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_func_ad1
+  1495: 00001909    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_func_gpi
+  1496: 00001859    48 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_4_set_func_scl
+  1497: 000017c9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_resistor
+  1498: 00001601    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_7_set_func_gpi
+  1499: 00003889    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1500: 000038f9    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1501: 00000a35    24 FUNC    GLOBAL DEFAULT    1 scene_speed_up
+  1502: 00002591    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_hysteres
+  1503: 00002165    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_ct
+  1504: 00001cb9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_func_gpi
+  1505: 000028d1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_resistor
+  1506: 000012b9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_resistor
+  1507: 00003b71    68 FUNC    GLOBAL DEFAULT    1 usbpll_set_clock_source_s
+  1508: 00001f85    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_hystere
+  1509: 00003771    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1510: 00003de1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_uart_disable_cl
+  1511: 000034f5    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1512: 0000336d    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1513: 000006cf     2 FUNC    GLOBAL DEFAULT    1 wakeup_irq_handler
+  1514: 00001bb9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_hysteres
+  1515: 00002b2d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_resistor
+  1516: 00001dd1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_resistor
+  1517: 00000aad    28 FUNC    GLOBAL DEFAULT    1 scene_program_down
+  1518: 00002279    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
+  1519: 00001145    20 FUNC    GLOBAL DEFAULT    1 btn_5_is_set
+  1520: 000010e1    20 FUNC    GLOBAL DEFAULT    1 btn_0_is_set
+  1521: 000022bd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
+  1522: 00000f9f     2 FUNC    GLOBAL DEFAULT    1 GetInReport
+  1523: 000039f1    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_second_diviver
+  1524: 00003851    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1525: 000020c1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
+  1526: 0000259d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_hysteres
+  1527: 00003fc9    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbphy_power_on
+  1528: 00002621    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_hysteres
+  1529: 00000ac9    10 FUNC    GLOBAL DEFAULT    1 load_delay_from_frame
+  1530: 000032e1    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1531: 00003a6d    36 FUNC    GLOBAL DEFAULT    1 sysosc_enable_1MHz_20MHz
+  1532: 00004a85   295 OBJECT  GLOBAL DEFAULT    1 bin_movies_a2rgb_bin
+  1533: 00002999    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
+  1534: 00002391    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
+  1535: 10000000   384 OBJECT  GLOBAL DEFAULT    2 usb_drv_ram_buffers
+  1536: 000023d1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_func_r_j
+  1537: 00003269    12 FUNC    GLOBAL DEFAULT    1 i2c_reset_enabled
+  1538: 000023b9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_hysteres
+  1539: 000026e9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_resistor
+  1540: 00002c39    22 FUNC    GLOBAL DEFAULT    1 led_ann_3r_on
+  1541: 000024b5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_2_set_hysteres
+  1542: 000039a1    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1543: 000027f5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_func_gp
+  1544: 00002285    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
+  1545: 000011dd    24 FUNC    GLOBAL DEFAULT    1 gpio_set_dir
+  1546: 00001ca1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_hystere
+  1547: 00001915    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_func_ct1
+  1548: 00002541    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_resistor
+  1549: 000006ed     2 FUNC    GLOBAL DEFAULT    1 wdt_irq_handler
+  1550: 00003739    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1551: 0000104d    16 FUNC    GLOBAL DEFAULT    1 set_bit_zero
+  1552: 00001ec9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_func_gp
+  1553: 00003e11    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_usbreg_disable_
+  1554: 00000401   646 FUNC    GLOBAL DEFAULT    1 board_init
+  1555: 000010a3     8 FUNC    GLOBAL DEFAULT    1 set_all_bits_one
+  1556: 000036e5    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1557: 000012d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_hysteres
+  1558: 000027b5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_resistor
+  1559: 0000269d    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_func_ct3
+  1560: 00000f27     4 FUNC    GLOBAL DEFAULT    1 tick_thread_16_0
+  1561: 0000320d    12 FUNC    GLOBAL DEFAULT    1 remap_vectors_to_boot_rom
+  1562: 00001e01    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_func_mos
+  1563: 00000000     0 NOTYPE  GLOBAL DEFAULT    1 _text
+  1564: 000017fd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_hysteres
+  1565: 00003e29    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_wdt_disable_clo
+  1566: 00003625    12 FUNC    GLOBAL DEFAULT    1 syspll_set_second_diviver
+  1567: 00000cf5   232 FUNC    GLOBAL DEFAULT    1 thread_leds_set_bat_level
+  1568: 00001409    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_func_clk
+  1569: 00001cad    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_hystere
+  1570: 10000180     0 NOTYPE  GLOBAL DEFAULT    2 _usb_drv_ram_size
+  1571: 00001ced    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_resistor
+  1572: 00002c57     8 FUNC    GLOBAL DEFAULT    1 led_ann_1b_off
+  1573: 00003d39    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_i2c_disable_clo
+  1574: 000021b1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
+  1575: 000006c9     2 FUNC    GLOBAL DEFAULT    1 debug_mon_handler
+  1576: 000022a1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_resistor
+  1577: 000024c1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_func_gpi
+  1578: 00003691    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1579: 000021f1    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_func_r_j
+  1580: 00001df5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_func_gpi
+  1581: 00003fb1    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbpll_power_on
+  1582: 000014b9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_hysteres
+  1583: 00003e95    68 FUNC    GLOBAL DEFAULT    1 usbclk_set_clock_source_m
+  1584: 000031ad    16 FUNC    GLOBAL DEFAULT    1 memset
+  1585: 00001599    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
+  1586: 00002e39    22 FUNC    GLOBAL DEFAULT    1 led_bat_3_power_on
+  1587: 00002369    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
+  1588: 000006fd    18 FUNC    GLOBAL DEFAULT    1 main
+  1589: 00002c67     8 FUNC    GLOBAL DEFAULT    1 led_ann_2g_off
+  1590: 00003a91    36 FUNC    GLOBAL DEFAULT    1 sysosc_enable_15MHz_25MHz
+  1591: 00001b4d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_func_cts
+  1592: 00003f09    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_power_on
+  1593: 000014f9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
+  1594: 00002b49    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_resistor
+  1595: 00003cf1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ram_disable_clo
+  1596: 00003ccd    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ahb2apb_bridge_
+  1597: 000040f5    20 FUNC    GLOBAL DEFAULT    1 usbdrvrom_connect
+  1598: 000013f1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_hysteres
+  1599: 000006cd     2 FUNC    GLOBAL DEFAULT    1 sys_tick_handler
+  1600: 000016c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
+  1601: 00002375    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_resistor
+  1602: 00001ddd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_hysteres
+  1603: 00003a43    14 FUNC    GLOBAL DEFAULT    1 usbpll_is_locked
+  1604: 000011cd    14 FUNC    GLOBAL DEFAULT    1 delay_ticks
+  1605: 00002321    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_func_ad2
+  1606: 00000f93     2 FUNC    GLOBAL DEFAULT    1 cmdSetDebugBuf
+  1607: 00001c51    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_10_set_resisto
+  1608: 00000f2b     4 FUNC    GLOBAL DEFAULT    1 tick_thread_16_1
+  1609: 00000f89     2 FUNC    GLOBAL DEFAULT    1 cmdReadAdc
+  1610: 00002511    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_resistor
+  1611: 00003f99    12 FUNC    GLOBAL DEFAULT    1 runcfg_syspll_power_on
+  1612: 00000a09    16 FUNC    GLOBAL DEFAULT    1 scene_bright_up
+  1613: 000006eb     2 FUNC    GLOBAL DEFAULT    1 adc_irq_handler
+  1614: 10000180     0 NOTYPE  GLOBAL DEFAULT    2 _usb_drv_ram_end
+  1615: 000029e5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_func_ct3
+  1616: 000027e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_hysteres
+  1617: 000035e1    12 FUNC    GLOBAL DEFAULT    1 syspll_set_second_diviver
+  1618: 00003ded    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_uart_enable_clo
+  1619: 00003549    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1620: 00000f33    34 FUNC    GLOBAL DEFAULT    1 loop_main_thread
+  1621: 000015dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_resistor
+  1622: 00001f29    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_resisto
+  1623: 000027d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_resistor
+  1624: 00003ab5    60 FUNC    GLOBAL DEFAULT    1 syspll_set_clock_source_i
+  1625: 00003431    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1626: 000015f5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_2_set_hysteres
+  1627: 00002afd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_hysteres
+  1628: 000006f7     2 FUNC    GLOBAL DEFAULT    1 pio_int1_irq_handler
+  1629: 00000f95     2 FUNC    GLOBAL DEFAULT    1 cmdFmSendData
+  1630: 00002ab9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_resistor
+  1631: 00002099    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
+  1632: 000029a5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_hysteres
+  1633: 00002cb5     8 FUNC    GLOBAL DEFAULT    1 led_dbg_green_power_off
+  1634: 000014a1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_resistor
+  1635: 00003fbd    12 FUNC    GLOBAL DEFAULT    1 runcfg_usbpll_power_off
+  1636: 00000f97     2 FUNC    GLOBAL DEFAULT    1 cmdFmRecvData
+  1637: 00000b31     4 FUNC    GLOBAL DEFAULT    1 btn_act_3
+  1638: 00001275    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_resistor
+  1639: 000022d5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_hysteres
+  1640: 10000314    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_3
+  1641: 00000ee5    66 FUNC    GLOBAL DEFAULT    1 init_threads
+  1642: 00001a0d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_func_gpi
+  1643: 00003d21    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_flasharray_disa
+  1644: 10000000     0 NOTYPE  GLOBAL DEFAULT    2 _usb_drv_ram_start
+  1645: 000026c1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_resistor
+  1646: 000028ed    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_resistor
+  1647: 00003efd    12 FUNC    GLOBAL DEFAULT    1 runcfg_irc_out_power_off
+  1648: 00001831    40 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_4_set_func_scl
+  1649: 00002f05    26 FUNC    GLOBAL DEFAULT    1 led_ann_cs_one_on
+  1650: 00003915    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1651: 000019e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
+  1652: 0000251d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_0_set_hysteres
+  1653: 00002b09    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_hysteres
+  1654: 000016a9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_resistor
+  1655: 000019a5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
+  1656: 000013fd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_func_gpi
+  1657: 00001515    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
+  1658: 00001531    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
+  1659: 00004883   514 OBJECT  GLOBAL DEFAULT    1 bin_movies_a4rgb_bin
+  1660: 00002af1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_resistor
+  1661: 000014c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_func_gpi
+  1662: 000040cd    20 FUNC    GLOBAL DEFAULT    1 usbdrvrom_isr
+  1663: 000034a1    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1664: 000020f5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_hystere
+  1665: 0000317d    24 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_get_green
+  1666: 000039d9    12 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1667: 10000000     0 NOTYPE  GLOBAL DEFAULT    2 _data
+  1668: 00001a5d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
+  1669: 0000070f    26 FUNC    GLOBAL DEFAULT    1 bit_reader_init
+  1670: 000037fd    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1671: 00003cfd    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ram_enable_cloc
+  1672: 00001395    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_0_set_resistor
+  1673: 00003e05    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_adc_enable_cloc
+  1674: 00003281    12 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1675: 000014ed    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_resistor
+  1676: 00002cd3     8 FUNC    GLOBAL DEFAULT    1 led_dbg_blue_power_off
+  1677: 00001d31    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_hysteres
+  1678: 00003d75    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct16b0_enable_c
+  1679: 000031f9    20 FUNC    GLOBAL DEFAULT    1 switch_dbg_is_set
+  1680: 0000378d    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1681: 00001cc5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_func_dcd
+  1682: 00003485    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1683: 00003a51    28 FUNC    GLOBAL DEFAULT    1 sysosc_disable
+  1684: 000025f9    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_resistor
+  1685: 00003dd5    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ssp_enable_cloc
+  1686: 0000297d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_resistor
+  1687: 00001425    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_1_set_func_ct3
+  1688: 000022c9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_hysteres
+  1689: 00002769    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_4_set_func_ct3
+  1690: 000006e3     2 FUNC    GLOBAL DEFAULT    1 uart_irq_handler
+  1691: 00001ce1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_resistor
+  1692: 00003f5d    12 FUNC    GLOBAL DEFAULT    1 runcfg_adc_power_off
+  1693: 00003ff9    84 FUNC    GLOBAL DEFAULT    1 init_timer16
+  1694: 00002811    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_func_ad
+  1695: 000029b1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_5_set_hysteres
+  1696: 00001045     8 FUNC    GLOBAL DEFAULT    1 bit_mask
+  1697: 100001a4     0 NOTYPE  GLOBAL DEFAULT    2 _edata
+  1698: 00002141    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_ad
+  1699: 00003b35    60 FUNC    GLOBAL DEFAULT    1 usbpll_set_clock_source_i
+  1700: 00001aa9    48 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_func_sck
+  1701: 00001f0d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_func_ct
+  1702: 00002c7f     8 FUNC    GLOBAL DEFAULT    1 led_ann_3g_off
+  1703: 00002569    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_1_set_resistor
+  1704: 00003819    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1705: 00002885    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_hystere
+  1706: 00001785    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_func_usb
+  1707: 00001b41    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_func_gpi
+  1708: 00001eb1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_hysteres
+  1709: 00003389    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1710: 00002c6f     8 FUNC    GLOBAL DEFAULT    1 led_ann_2b_off
+  1711: 000006bd     2 FUNC    GLOBAL DEFAULT    1 nmi_handler
+  1712: 0000310d    24 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_set_global
+  1713: 00001b69    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_7_set_resistor
+  1714: 00002255    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_0_set_func_ct3
+  1715: 000006e1     2 FUNC    GLOBAL DEFAULT    1 ssp_irq_handler
+  1716: 00002cbd    22 FUNC    GLOBAL DEFAULT    1 led_dbg_green_power_on
+  1717: 00003f69    12 FUNC    GLOBAL DEFAULT    1 runcfg_sysosc_power_on
+  1718: 00003dbd    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct32b1_enable_c
+  1719: 00003165    24 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_get_red
+  1720: 00002b21    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_resistor
+  1721: 00002bcb    22 FUNC    GLOBAL DEFAULT    1 led_ann_2g_on
+  1722: 00001a25    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
+  1723: 0000328d    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1724: 00001d3d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_2_set_hysteres
+  1725: 0000153d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_8_set_hysteres
+  1726: 00000b39     4 FUNC    GLOBAL DEFAULT    1 btn_act_5
+  1727: 00003677    14 FUNC    GLOBAL DEFAULT    1 syspll_is_locked
+  1728: 0000271d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_3_set_hysteres
+  1729: 00002d35    22 FUNC    GLOBAL DEFAULT    1 led_bat_2_power_on
+  1730: 0000211d    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_func_gp
+  1731: 000022fd    36 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_1_set_func_gpi
+  1732: 00002d2d     8 FUNC    GLOBAL DEFAULT    1 led_bat_2_power_off
+  1733: 0000165d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_7_set_hysteres
+  1734: 00001361    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_hysteres
+  1735: 00001a81    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_6_set_func_gpi
+  1736: 000028b5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_2_set_resistor
+  1737: 00001975    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_resistor
+  1738: 00003f39    12 FUNC    GLOBAL DEFAULT    1 runcfg_bod_power_on
+  1739: 00004109   108 FUNC    GLOBAL DEFAULT    1 usbdrvrom_init_connect
+  1740: 000031f1     8 FUNC    GLOBAL DEFAULT    1 init_switches
+  1741: 00001c2d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_9_set_hysteres
+  1742: 00003f51    12 FUNC    GLOBAL DEFAULT    1 runcfg_adc_power_on
+  1743: 000040b9    20 FUNC    GLOBAL DEFAULT    1 usbdrvrom_init_clk_pins
+  1744: 00001f35    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_10_set_resisto
+  1745: 00000f85     2 FUNC    GLOBAL DEFAULT    1 cmdTest
+  1746: 00003cc1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_set_divider
+  1747: 00001231     6 FUNC    GLOBAL DEFAULT    1 gpio_set_data_bit_zero
+  1748: 00003131    52 FUNC    GLOBAL DEFAULT    1 led_matrix_fsm_set_rgb_br
+  1749: 00000000  1024 OBJECT  GLOBAL DEFAULT    1 vectors
+  1750: 000006f5     2 FUNC    GLOBAL DEFAULT    1 pio_int2_irq_handler
+  1751: 00002a91    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_7_set_func_ct3
+  1752: 00001779    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_3_set_func_gpi
+  1753: 000032c5    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1754: 00003f81    12 FUNC    GLOBAL DEFAULT    1 runcfg_wdtosc_power_on
+  1755: 000016d1    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_8_set_hysteres
+  1756: 000020a5    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
+  1757: 000021cd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_11_set_resisto
+  1758: 00002835    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_11_set_resisto
+  1759: 000012c5    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_hysteres
+  1760: 00002b15    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_func_gpi
+  1761: 00002f1f    16 FUNC    GLOBAL DEFAULT    1 led_fsm_init
+  1762: 00001755    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_1_set_resistor
+  1763: 00001349    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_resistor
+  1764: 00000e21    12 FUNC    GLOBAL DEFAULT    1 thread_movie_init
+  1765: 00003755    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1766: 00001e39    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_9_set_func_swo
+  1767: 00002c5f     8 FUNC    GLOBAL DEFAULT    1 led_ann_1r_off
+  1768: 00000f99     2 FUNC    GLOBAL DEFAULT    1 processCommand
+  1769: 000006c3     2 FUNC    GLOBAL DEFAULT    1 bus_fault_handler
+  1770: 00003d5d    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_gpio_enable_clo
+  1771: 00002eaf    86 FUNC    GLOBAL DEFAULT    1 led_ann_cs_all_off
+  1772: 00002615    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_3_set_resistor
+  1773: 000006f9     2 FUNC    GLOBAL DEFAULT    1 pio_int0_irq_handler
+  1774: 00001201    48 FUNC    GLOBAL DEFAULT    1 gpio_set_data_bit
+  1775: 00002b71    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio3_3_set_hysteres
+  1776: 000020dd    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_resisto
+  1777: 00001d71    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_func_ct1
+  1778: 00003d51    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_gpio_disable_cl
+  1779: 00002c0d    22 FUNC    GLOBAL DEFAULT    1 led_ann_3g_on
+  1780: 000037c5    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1781: 00002051    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_10_set_hystere
+  1782: 00001931    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_9_set_resistor
+  1783: 000038a5    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1784: 00000a19    16 FUNC    GLOBAL DEFAULT    1 scene_bright_down
+  1785: 00004e16   618 OBJECT  GLOBAL DEFAULT    1 bin_movies_testfw1_bin
+  1786: 00003cd9    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_rom_disable_clo
+  1787: 00003bb5    60 FUNC    GLOBAL DEFAULT    1 mainclk_set_clock_source_
+  1788: 00003fa5    12 FUNC    GLOBAL DEFAULT    1 runcfg_syspll_power_off
+  1789: 00002a5d    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_hysteres
+  1790: 00001269    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_func_gpi
+  1791: 00002a51    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio1_6_set_hysteres
+  1792: 1000032c    24 OBJECT  GLOBAL DEFAULT    3 btn_ctx_0
+  1793: 00001305    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_0_set_resistor
+  1794: 00001de9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio0_8_set_hysteres
+  1795: 00001109    20 FUNC    GLOBAL DEFAULT    1 btn_2_is_set
+  1796: 000011fb     6 FUNC    GLOBAL DEFAULT    1 gpio_set_dir_out
+  1797: 000006ef     2 FUNC    GLOBAL DEFAULT    1 bod_irq_handler
+  1798: 000034bd    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1799: 000019cd    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_resistor
+  1800: 00003db1    12 FUNC    GLOBAL DEFAULT    1 sysahbclk_ct32b1_disable_
+  1801: 00003985    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1802: 000032fd    28 FUNC    GLOBAL DEFAULT    1 syspll_set_first_divider_
+  1803: 000020e9    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_11_set_hystere
+  1804: 000039bd    28 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
+  1805: 000039e5    12 FUNC    GLOBAL DEFAULT    1 usbpll_set_second_diviver
+  1806: 00001a01    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_4_set_hysteres
+  1807: 0000129d    28 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_6_set_resistor
+  1808: 00004178   978 OBJECT  GLOBAL DEFAULT    1 bin_movies_a1rgb_bin
+  1809: 00001a19    12 FUNC    GLOBAL DEFAULT    1 iocfg_pio2_5_set_resistor
+  1810: 00003685    12 FUNC    GLOBAL DEFAULT    1 usbpll_set_first_divider_
 
 No version information found in this file.
 Attribute Section: aeabi

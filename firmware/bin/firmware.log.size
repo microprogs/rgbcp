@@ -1,10 +1,10 @@
 firmware.elf  :
 section             size         addr
-.text             0x4c04          0x0
-.data              0x198   0x10000000
-.bss               0x200   0x10000198
+.text             0x5148          0x0
+.data              0x1a4   0x10000000
+.bss               0x200   0x100001a4
 .comment            0x11          0x0
 .ARM.attributes     0x33          0x0
-Total             0x4fe0
+Total             0x5530
 
 
